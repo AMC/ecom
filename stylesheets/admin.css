@@ -1,0 +1,113 @@
+body {
+  background: #DDD;
+  font-family: tahoma;
+  color: #444;
+}
+
+a {
+  text-decoration: none;
+  color: #444;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #CCC;
+  padding: 3px;
+}
+
+tr {
+  margin-top: 5px;
+}
+
+td {
+  border: 1px solid #DDDDDD;
+  padding: 0px;
+}
+
+#flash {
+  width: 900px;
+  margin: 10px auto;
+  padding: 5px 10px;
+  background: #EEE;
+  border: 1px solid #900;
+  text-align: center;
+  color: #900;
+}
+
+.menu {
+  width: 900px;
+  margin: 10px auto;
+  padding: 10px;
+  background: #EEE;
+  border: 1px solid #CCC;
+  text-align: right;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #444;
+  padding-left: 20px;
+
+}
+
+.menu a:hover {
+  text-decoration: underline;
+  color: #666;
+}
+
+#login_menu {
+  width: 900px;
+  margin: 0px auto;
+  padding: 5px 10px;
+  background: #EEE;
+  border: 1px solid #CCC;
+  font-size: .8em;
+  text-align: center;
+}
+
+#login_menu a:hover {
+  text-decoration: underline;
+  color: #666;
+}
+
+#login_menu input {
+  margin: 0px 20px;
+  background: #FFF;
+  border: 1px solid #CCC;
+}
+
+#header {
+  width: 900px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+#container {
+  width: 900px;
+  margin: 10px auto;
+  padding: 10px;
+  background: #EEE;
+  border: 1px solid #CCC;
+}
+
+#footer {
+  clear: both;
+  width: 900px;
+  margin: 10px auto;
+  padding: 10px;
+  color: #555;
+  text-align: center;
+}
+
+#shipping_table {
+  text-align: right;
+  width: 100%;
+}
+
+
+#shipping_table input {
+  text-align: right;
+}

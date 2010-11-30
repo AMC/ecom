@@ -1,0 +1,138 @@
+X   New Product
+X   Edit Product
+X   View Product
+X     Display other items in collection
+X   Product Thumbnails
+X   Shipping based on Total Price
+X     Overnight, 2nd day
+X     No Shipping on American West and Lou-Ella over $70
+X   International Shipping
+X   Order Total
+X   Over the rainbow as single collection
+X   Menu Order
+X   Credit Cards
+X     American Express
+X     Discover
+X     4 Digit Security Code
+X   Bug: Cart - Update Quantity 
+X   Bug: Cart - Empty Cart
+X   Bug: Going to My Information page resets role
+X   Bug: Update Account freezes site
+X   Upload Image
+X   Upload Thumbnail
+X   New Product - no image, then redirects to update after save
+
+------------------------------ October 30 ---------------------------------
+
+X   New/Update Product
+X     Require Parent Category
+X     Show Dimensions
+X     Unique Manufacturer Reference
+X     Parent Category drop down: HATS, Decor, Accessories
+X   Catalog Menu
+X     Schaefer Outfitters (Adjusted font to 13px to fit single line)
+X     Montana Silver
+X   Catalog Menu - Change name of $category variable / Bug: $category does not display in New Product/Update Product
+X   Check if ADMIN before add or update
+X   Accessories are not including items in American West and Lou-Ella
+X   Catalog Menu - Load items
+X   Bug: Next Button
+X   Catalog - display current collection or category
+X   Catalog - Next/Prev at bottom of page as well
+X   Highlight current catalog menu selection
+X   Thumbnail is not displaying on update products
+X     Upload thumbnails
+X   Upload images, only allow certain file types
+X   Bug: Thumbnails not showing in update view
+X   Free Shipping is ground only
+X   Bug: Edit button on Finalize order page had error due to international orders
+X   Static Pages:
+X     About Us
+X     Links
+X     Policies
+X     Custom Boots
+X     Montana Silver
+----------------
+X   Policies: removed return policy for wedding dresses
+X   Links: removed link to CTWW
+X   Checkout: changed "you will not be charged" to "your order will not be processed"
+X   "No image" icon from Ronda
+X   Use HTTPS for Checkout
+X     Link to pages as https://checkout
+X     Verify page is SSL via the $_SERVER variable
+X     Waiting on Interlink Advantage to update SSL
+X   Install SSL Certificate
+X   Catalog Home (Image instead of instant browsing)
+X   Bug: Cannot upload images to interlink server
+X   Admin view order - ensure update total works
+X   Checkout: 
+X    If user logged in, autofill name and email
+X    Require phone number
+X   Product Options with price impact
+X     Belt Sizes
+X     Schaefer Products
+X   Bug: Admin Update password
+X   Bug: next page is blank on ladies wallets and on ladies accessories
+X   Bug: ensure user can checkout
+
+----------------
+X  Landing Pages
+X  Holiday Logo
+X  Re-work Menu
+X  Sales Tax    
+X   Emails
+X     Order Received
+X     Order Shipped
+X     Order Notification
+X   Dashboard
+X     Order Search
+X     Sales results
+X     Pending / Processed / Cancelled Orders
+-----------------
+X  Invoices, Email and Order Summary
+X    Order #
+X    Manufacturer
+X    Item #
+X    Collection
+X    Shipping Type
+X    Bill To and Ship To
+X    Move Phone and Email to Billing Info
+X  Flash Message color: 900
+
+*  Sales and Promotions
+X    Order by End Date
+X    Bug: Discount should update when cart changes
+X    Promotion can have Discount code or Discount Amount
+     Currently only applies to storewide, with discount code
+
+Multiple Images per Item
+
+* Bug: Checkout - verify phone number
+     
+*  SSH Key to Kevin
+
+
+*  Menu Landing Pages
+     Collections
+     Categories     
+
+*  Contact Page
+
+
+
+   Shipping Labels
+     ups #143W54  
+
+   Product Live Search
+
+   Order Live Search
+
+   User History
+
+   Wish List
+
+   Gift Registry
+    
+   Optimize Images
+ 
+   Disable back button in forms

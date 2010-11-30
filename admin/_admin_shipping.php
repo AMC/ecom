@@ -1,0 +1,1 @@
+<img src='admin/images/fedexlabel.gif' />

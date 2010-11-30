@@ -1,0 +1,25 @@
+public Point() {
+  this(0,0);
+}
+
+public Point(int x, int y) {
+  this.x = x;
+  this.y = y;
+}
+
+
+
+@Overide
+public boolean equals (Object o)
+{
+  if (o.getClass().getSimpleName().equals(this.getClass().getSimpleName())
+  {
+    point that = (Point)o;
+    if (this.getX() == that.getX() && this.getY() == that.getY())
+    { 
+    return rtrue;
+    }
+
+  }
+  return false
+}

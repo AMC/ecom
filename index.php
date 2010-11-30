@@ -4,50 +4,40 @@
 
 <?php $stylesheets[] = ''; ?>
 
-<?php include("layout/_layout_top.php"); ?>
-<?php include("layout/_layout_menu.php"); ?>
-<?php include("layout/_layout_flash.php"); ?>
+<?php include("layout/header.php"); ?>
+<?php include("layout/menu.php"); ?>
+<?php include("layout/flash_message.php"); ?>
 
 <div id='container'>
-  
-  <div style='margin: -10px 0px 10px; width: 100%; text-align: center'>
-		<img src="images/main-pic.png" width="862" height="231" alt="HAV Western Wear" />
-  </div>
-    
-  <div style='float: left;'>
-    <a href="catalog.php?parent=schaefer" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Schaefer','','images/schaefer_box2.png',1)">
-      <img src="images/schaefer_box1.png" alt="Schaefer Outfitters" width="268" height="160" border="0" id="Schaefer" />
-    </a>
-  </div>
-  <div style='float: left; margin-left: 28px;'>
-    <a href="catalog.php?parent=accessories" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('accessories','','images/accessories_box2.png',1)">
-      <img src="images/accessories_box1.png" alt="Accessories" width="270" height="160" border="0" id="accessories" />
-    </a>
-  </div>
-  <div style='float: right;'>    
-    <a href="catalog.php?parent=decor" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('decor','','images/decor_box2.png',1)">
-      <img src="images/decor_box1.png" alt="Decor" width="268" height="160" border="0" id="decor" />
-    </a>
-  </div>
-
-  <div style="clear: both"> </div>
-  
-  
-  <div class='content_top'>
+  <div id='slideshow'>
+		<iframe src="scroller.html" name="right-iframe" scroll="no" marginwidth="0" marginheight="0" align="center" frameborder="0" height="199" scrolling="no" width="100%"></iframe>
   </div>
   
-  <div class='content'>
-    <h1 style='padding-top: 10px; padding-bottom: 10px; '>Welcome!</h1>
+  <div id='left_column'>
+    &nbsp;
+  </div>
+  
+  <div id='right_column'>
+  	<h1>Welcome!</h1>
     <p>
-    	HAV Western Wear is located in the Pacific Northwest in the &quot;City of Spokane Valley.&quot; HAV 
-    	Western Wear specializes in better western clothing and boots. We carry Lucchese, Justin, Tony Lama, Stewart, 
-    	and Dan Post to name a few. We also have a local &quot;CUSTOM BOOT&quot; maker for hard-to-fit and unusual 
-    	style requests. We carry distinctive women's and men's clothing from all the major brands and great retro looks.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan elit ut urna dictum nec imperdiet mauris varius. 
+      Integer posuere velit eget sem bibendum vestibulum. Etiam mattis gravida dignissim. Quisque vehicula, elit quis semper porta, 
+      leo nisl volutpat mauris, et viverra nunc odio id mi. Phasellus fermentum ligula a lectus hendrerit ut tempor metus tristique. 
+      Donec lacinia congue hendrerit. Aliquam accumsan, eros blandit pulvinar blandit, felis elit mattis ligula, quis semper quam 
+      purus ac libero. Sed in ante nisl. Proin placerat augue et nibh dignissim accumsan rhoncus nunc sagittis. Aenean tristique 
+      orci at lectus dignissim quis hendrerit odio feugiat. Sed facilisis massa id orci bibendum a vulputate enim hendrerit. Maecenas 
+      consectetur sodales arcu quis pellentesque.
+  	</p>
+    <p>
+  		Ut malesuada, mauris sed gravida consectetur, mauris risus accumsan sapien, in vulputate massa dui pellentesque est. Nunc luctus 
+      pellentesque sem vel egestas. Nam vel nulla at augue porttitor aliquam ac egestas nulla. Suspendisse nec tellus vestibulum lacus 
+      interdum fermentum. Fusce tristique lacinia viverra. Sed vel magna eget lectus viverra rutrum. Mauris eu mattis magna. Morbi 
+      quis arcu quis purus tempus mollis. Aenean quis nisi at lorem condimentum fringilla non in mauris. Donec porttitor feugiat 
+      euismod. Proin mi enim, fermentum et tempor non, consectetur vitae leo. 
     </p>
+    
   </div>
- 
-  <div class='content_bottom'>
-  </div>
+  
   
 
   <div style="clear: both"> </div>
@@ -55,4 +45,4 @@
     
 </div>
 
-<?php include("layout/_layout_bottom.php"); ?>
+<?php include("layout/footer.php"); ?>

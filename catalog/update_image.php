@@ -1,13 +1,13 @@
 <?php
 
 $file_types = array("image/jpeg" => ".jpg", "image/pjpeg" => ".jpg", "image/gif" => ".gif", "image/png" => ".png");
-$manufacturer_reference = $_REQUEST['manufacturer_reference'];
+$reference = $_REQUEST['reference'];
 $type = $_REQUEST['type'];
 
 if (!$_FILES['image']['tmp_name']) {
 	$_SESSION['flash'][] = 'No image uploaded';
 
-} elseif (empty($manufacturer_reference) || empty($type)) {
+} elseif (empty($reference) || empty($type)) {
 	$_SESSION['flash'][] = 'Reference or image type missing';
 
 } else {
@@ -22,13 +22,13 @@ if (!$_FILES['image']['tmp_name']) {
   } else {
 
     if ($type == 'main') {
-      $filename = $manufacturer_reference;
+      $filename = $reference;
     } elseif ($type == 'thumbnail') {
-      $filename = $manufacturer_reference . "-tn";
+      $filename = $reference . "-tn";
     } else {
       $i = 1;
       do {
-       $filename = $manufacturer_reference . "-" . $i;
+       $filename = $reference . "-" . $i;
        $i++;
 
        //echo $filename . $file_types[$file_type] . " exists: " . (file_exists($filename . $file_types[$file_type])) . "<br />";

@@ -1,6 +1,6 @@
 <?php
   # Create a connection to the database
-  $db = new mysqli('localhost', 'root', 'root', 'ecom');
+  $db = new mysqli('localhost', 'root', 'root', 'safari');
   
   # Test the database connection
   if ($db->ping()) {

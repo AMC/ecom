@@ -1,12 +1,10 @@
-<?php include("layout/_layout_top.php"); ?>
-<?php include("layout/_layout_menu.php"); ?>
-<?php include("layout/_layout_flash.php"); ?>
+<?php include("layout/header.php"); ?>
+<?php include("layout/menu.php"); ?>
+<?php include("layout/flash_message.php"); ?>
 
 <div id="container">
-  <div class='content_top_fancy'>
-  </div>
   
-  <div class='content'>
+  <div class='full_screen'>
 
   <h3>Thank you for your order</h3>
   <p>Your order has been submitted. </p>
@@ -17,7 +15,7 @@
     <a href='checkout.php?action=mailing_list_no&email=<?php echo $email; ?>' class='button'> NO </a></p>
   </div>
   
-  <div class='content_bottom'> </div>
+
 </div>
 
-<?php include("layout/_layout_bottom.php"); ?>
+<?php include("layout/footer.php"); ?>

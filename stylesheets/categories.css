@@ -1,135 +1,36 @@
-
-img {
-  border-style: none;
+divs {
+  margin: -1px;
+  border: 1px solid green;
 }
 
-a:hover {
- color:#ba7e66;
+.product_list {
+  margin-bottom: 15px;
+  width: 100%;
+  min-height: 125px;
+  border: 1px solid #0C4D7D;
 }
 
-#next {
-  width: 50%;
-  text-align: right;
-  padding: 5px 0px;
-  float: right;
-}
-
-#prev {
-  width: 50%;
-  text-align: left;
-  padding: 5px 0px;
+.product_image {
   float: left;
+  min-height: 75px;
 }
 
-
-.categories {
-  width: 180px;
-  text-align: left;
-  font-size: 14px;
-  line-height: 1.8em;
-  float: left ;
-  padding: 0px 20px 20px 0px;
-}
-
-.categories a {
-  margin-right: 20px;
-}
-
-.categories ul {
-  padding: 0px 0px 0px 10px;
-}
-
-.categories li {
-  list-style-type: none;
-}
-
-.products {
-  width: 590px;
-  float: right;
-  min-height: 400px;
-}
-.products_list {
-  float: left;
-  text-align: center;
-  width: 160px;
-  height: 250px;
-  margin: 5px 14px;
-  line-height: 1.5em;
-  font-size: 12px;
-}
-
-
-#product_description {
-  float: right;
-  width: 600px;
-}
-
-.small_image {
-  padding: 10px 4px 0px 4px;
-  border-style: none;
-}
-
-#product_information_table {
-  line-height: 1.5em;
-}
-
-#product_information_table td {
-  padding-right: 50px;
-}
-
-#file_process_table{
-	
-}
-
-#product_images {
-  width: 290px;
-  float: left;
-}
-
-#update_image, #product_image {
-  padding-top: 20px;
-  text-align: center;
-  font-weight: bold;
-  float: left; 
-  width: 290px;
-}
-
-#additional_images {
-}
-
-.additional_images {
-  padding: 5px 11px;
-  float: left;
-  height: 80px;
-  font-size: 12px;
-  vertical-align: bottom ;
-}
-
-#update_text, #product_text {
-  padding-top: 20px;
-  width: 290px;
-  float: right;
-}
-
-h3, .h3 {
-  margin: 0px;
-  padding: 0px;
-  font-weight: bold;
-  font-size: 14px;
-  
-}
-
-#update_description {
-  clear: both;
-  float: right;
-  width: 580px;
-  text-align: right;
-}
-
-#other_items {
-  float: right;
-  width: 600px;
-  border-top: 3px solid #9b9b7a;
+.product_text {
   padding-top: 10px;
+  float: right;
+  width: 550px;
+  text-align: left;
 }
 
+#update_image {
+  float: left;
+  width: 300px;
+  text-align: center;
+  padding-right: 30px;
+}
+
+#update_text {
+  float: right;
+  width: 300px;
+  padding: 0px 25px;
+}

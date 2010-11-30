@@ -4,8 +4,8 @@ $cart_items = $db->query("SELECT product_id, quantity, options, price FROM cart_
 $cart = $db->query("SELECT * FROM cart WHERE id='$cart_id'");
 $cart = $cart->fetch_array(MYSQLI_ASSOC);
  
-  $my_email = 'Orders@HAVWesternWear.com';
-  $my_name = 'HAV Western Wear';
+  $my_email = 'Orders@SafariStuff.com';
+  $my_name = 'Safari Stuff';
  
    require("lib/class.phpmailer.php");
    
@@ -20,12 +20,12 @@ $cart = $cart->fetch_array(MYSQLI_ASSOC);
    $mail->AddAddress($email,  $cart['name']);
    $mail->AddAddress($my_email,  $my_name);
 
-   $mail->Subject = "HAV Western Wear - Order Received";
+   $mail->Subject = "Order Received";
 
    $body = "
 <html>
   <body>
-    <h3>HAV Western Wear Order #$cart_id</h3>
+    <h3>Safari Stuff Order #$cart_id</h3>
     <p>Your order has been received and is being processed. You will receive another email when it has shipped.</p>
     <p>Your order will be shipped to:</p>
     <ul style='list-style-type: none'>
@@ -48,10 +48,8 @@ while ($cart_item = $cart_items->fetch_array(MYSQLI_ASSOC)) {
   $body .= "  <td style='text-align: center;'>" . $cart_item['quantity'] . "</td>";
   $body .= "  <td style='text-align: left;'>"; 
   $body .=      $product['name'] . "<br />";
-  $body .=      $product['manufacturer'] . " #" . $product['manufacturer_reference'];
+  $body .=      $product['manufacturer'] . " #" . $product['reference'];
   
-  if ( !empty($product['collection'])) { $body .= "<br />Collection: " . $product['collection']; }
-
   $option_ids = explode(",", $cart_item['options']);
 
   foreach ($option_ids as $option_id) {

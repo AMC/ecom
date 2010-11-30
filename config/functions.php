@@ -43,7 +43,7 @@ function resize_img($image, $new_width) {
     return "<img src='$image' width='$new_width' height='$new_height' />";
   }
   $width_height = $new_width . "x" . $new_width;
-  return "<img src='images/no-image.gif' width='$new_width' height='$new_width' />";
+  return "<img src='http://placehold.it/$width_height' />";
 }
 
 function resize_popup_img($image, $new_width) {
@@ -57,7 +57,7 @@ function resize_popup_img($image, $new_width) {
     return "<a rel='image_gallery' href='$image' title=''><img alt='' src='$image' height=$new_height width=$new_width /></a>";  
   }
   $width_height = $new_width . "x" . $new_width;
-  return "<img src='images/no-image.gif' width='$new_width' height='$new_width' />";
+  return "<img src='http://placehold.it/$width_height' />";
 }
 
 function cart_id($db) {
@@ -229,110 +229,6 @@ function year($name, $selected_year) {
     }
   }
   echo "</select>";
-}
-
-function show_shipping_info($db, $cart_id) {
-  $cart = $db->query("SELECT name, int_address, address, address2, city, state, zip_code FROM cart WHERE id='$cart_id'"); 
-  $cart = $cart->fetch_array(MYSQLI_ASSOC); 
-  ?>
-  
-  <table id="shipping" style='width: 45%; float: left'>
-    <tr>
-      <td colspan='2'>  
-        <?php if (empty($_SESSION['international'])) { ?>
-          <a href="checkout.php?action=shipping_info" class='button'>edit</a> 
-        <?php } else { ?>
-          <a href="checkout.php?action=int_shipping_info" class='button'>edit</a> 
-        <?php } ?>
-      </td>
-    </tr>
-    <th colspan='2' style='text-align: left;'> Shipping Information: </th>
-    <tr>
-      <td>Name:</td>
-      <td><?php echo $cart['name'];?> </td>
-    </tr>
-    
-    <?php if ($cart['address'] != "") { ?>
-    <tr>
-      <td>Address:</td>
-      <td><?php echo $cart['address'];?> </td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td><?php echo $cart['address2'];?> </td>
-    </tr>
-    <tr>
-      <td>City, State, Zip:</td>
-      <td><?php echo $cart['city'] . ", " . $cart['state'] . " " . $cart['zip_code'];?> </td>
-    </tr>
-    
-    <?php } else { ?>
-    <tr> 
-      <td></td>
-      <td>INTERNATIONAL ORDER </td>
-
-    </tr>
-    <tr>
-      <td>Address:</td>
-      <td><?php echo $cart['int_address']; ?></td>
-    </tr>
-    
-    <?php } ?>
-    
-  </table>
-  
-  <?
-}
-
-function show_billing_info($db, $cart_id) {
-  $cart = $db->query("SELECT email, phone, cc_name, cc_type, cc_number, cc_address, cc_address2, cc_city, cc_state, cc_zip_code FROM cart WHERE id='$cart_id'"); 
-  $cart = $cart->fetch_array(MYSQLI_ASSOC);
-  ?>
-  <table id="billing" style='width: 45%; float: right'>
-    <tr>
-      <td colspan='2'>
-        <?php if (empty($_SESSION['international'])) { ?>  
-          <a href="checkout.php?action=billing_info" class="button">edit</a> </td>
-        <?php } else { ?>
-          <a href="checkout.php?action=int_billing_info" class="button">edit</a> </td>
-        <?php } ?>
-    </tr>
-    <th colspan='2' style='text-align: left;'> Billing Information: </th>
-    <tr>
-      <td>Name:</td>
-      <td><?php echo $cart['cc_name'];?> </td>
-    </tr>
-    
-    <tr>
-      <td>Email: </td>
-      <td><?php echo $cart['email'];?> </td>
-    </tr>
-    <tr>
-      <td>Phone:</td>
-      <td><?php echo $cart['phone'];?> </td>
-    </tr>
-    
-    <tr>
-      <td>Card:</td>
-      <td><?php echo $cart['cc_type'] . " " . substr($cart['cc_number'], -4, 4) ;?> </td>
-    </tr>
-
-    <tr>
-      <td>Address:</td>
-      <td><?php echo $cart['cc_address'];?> </td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td><?php echo $cart['cc_address2'];?> </td>
-    </tr>
-    <tr>
-      <td>City, State, Zip:</td>
-      <td><?php echo $cart['cc_city'] . ", " . $cart['cc_state'] . " " . $cart['cc_zip_code'];?> </td>
-    </tr>
-
-    
-  </table>
-  <?
 }
 
 function get_shipping_rate($db, $shipping_id) {

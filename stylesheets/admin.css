@@ -9,6 +9,10 @@ a {
   color: #444;
 }
 
+a img {
+  border: 0;
+}
+
 table {
   border-collapse: collapse;
 }
@@ -27,7 +31,7 @@ td {
   padding: 0px;
 }
 
-#flash {
+#flash_message {
   width: 900px;
   margin: 10px auto;
   padding: 5px 10px;
@@ -43,7 +47,7 @@ td {
   padding: 10px;
   background: #EEE;
   border: 1px solid #CCC;
-  text-align: right;
+  text-align: center;
 }
 
 .menu a {

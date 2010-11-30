@@ -1,7 +1,7 @@
 
-<?php include("layout/_layout_top.php"); ?>
-<?php include("layout/_layout_menu.php"); ?>
-<?php include("layout/_layout_flash.php"); ?>
+<?php include("layout/header.php"); ?>
+<?php include("layout/menu.php"); ?>
+<?php include("layout/flash_message.php"); ?>
 
 <?php $cart_items = $db->query("SELECT product_id, quantity, options FROM cart_products WHERE cart_id='$cart_id'"); ?>
 <?php $cart = $db->query("SELECT * FROM cart WHERE id='$cart_id'"); ?>
@@ -126,7 +126,7 @@
           </td>
           <td>
             <?php echo $product['name']; ?> <br />
-            <?php echo $product['manufacturer']; ?> #<?php echo $product['manufacturer_reference']; ?> 
+            <?php echo $product['manufacturer']; ?> #<?php echo $product['reference']; ?> 
             <?php if ( !empty($product['collection'])) { echo "<br />Collection: " . $product['collection']; } ?>
 
 
@@ -189,4 +189,4 @@
   </div>
 </div>
 
-<?php include("layout/_layout_bottom.php"); ?>
+<?php include("layout/footer.php"); ?>

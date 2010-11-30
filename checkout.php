@@ -1,6 +1,6 @@
 <?php 
 
-$require_https = TRUE;
+#$require_https = TRUE;
 
 include_once("config/initialize.php"); 
 include_once("config/database.php"); 

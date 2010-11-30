@@ -4,12 +4,14 @@ include_once("config/initialize.php");
 include_once("config/database.php"); 
 include_once("config/functions.php");
 
+$curl = $_SERVER['PHP_SELF'];
+
 // print_r($_REQUEST);
 
 $stylesheets[] = 'categories.css';
 
 #Set variables
-$form_variables = array('type', 'parent_category', 'view', 'collection', 'offset', 'product_id', 'name', 'manufacturer', 'manufacturer_reference', 'upc', 'category', 'collection', 'price', 'ws_price', 'dimensions', 'strap_length', 'free_shipping', 'discontinued', 'description');
+$form_variables = array('type', 'view', 'offset', 'product_id', 'name', 'manufacturer', 'reference', 'upc', 'category', 'price', 'cost', 'discontinued', 'description');
 foreach ($form_variables as $var) {
   $$var = request_var($db, $var);
 }
@@ -19,6 +21,11 @@ $selection = str_replace("\\", "", $selection);
 $selection = str_replace("_", " ", $selection);
 $selection = strtolower($selection);
 $selection = ucwords($selection);
+
+$form_variables = array('expand', 'view');
+foreach ($form_variables as $var) {
+  $$var = request_var($db, $var);
+}
 
 $form_variables = array('option_name', 'option', 'price_impact', 'option_id');
 foreach ($form_variables as $var) {
@@ -59,28 +66,25 @@ if (action() == 'delete_option') {
 }
   
 if (action() == 'none' || action() == 'index') { 
-  include("catalog/_catalog_index.php"); 
+  include("catalog/index.php"); 
   $_REQUEST['action'] = "FALSE"; 
   }
 
 if (action() == 'create_product') {
-  include("catalog/_catalog_create_product.php");
+  include("catalog/create_product.php");
 }
 
-if (action() == 'new') {
-  include("catalog/_catalog_view_product.php"); 
+if (action() == 'new_product') {
+  include("catalog/view_product.php"); 
 }
 
-if (action() == 'view_category') { 
-  include("catalog/_catalog_view_category.php"); 
-} 
 
 if (action() == 'update_product') { 
-  include("catalog/_catalog_update_product.php"); 
+  include("catalog/update_product.php"); 
 }
   
 if (action() == 'view_product') { 
-  include("catalog/_catalog_view_product.php"); 
+  include("catalog/view_product.php"); 
 }
 
 

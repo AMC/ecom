@@ -15,14 +15,14 @@ if ($fieldname[0] == 'item #' && $fieldname[1] = 'category' && $fieldname[2] == 
   while (!feof($filedata)) { 
     $fields = fgetcsv($filedata); 
     if ($fields != NULL) { 
-      $matches = $db->query("SELECT id FROM products WHERE manufacturer_reference='$fields[0]'");
+      $matches = $db->query("SELECT id FROM products WHERE reference='$fields[0]'");
       if ($matches->num_rows == 0 ) {
         // Replace the ' character with the html entity s
         for ($i = 0; $i < count($fields); $i++) {
           $fields[$i] = str_replace("'", "&#39;", $fields[$i]);
           $fields[$i] = str_replace('$', '', $fields[$i]);
         }
-        $db->query("INSERT INTO products (manufacturer_reference, category, name, description, dimensions, ws_price, price, strap_length, collection, upc, manufacturer, discontinued) VALUES ('$fields[0]', '$fields[1]', '$fields[2]', '$fields[3]', '$fields[4]', '$fields[5]', '$fields[6]', '$fields[7]', '$fields[8]', '$fields[9]', 'American West', FALSE)");
+        $db->query("INSERT INTO products (reference, category, name, description, dimensions, ws_price, price, strap_length, collection, upc, manufacturer, discontinued) VALUES ('$fields[0]', '$fields[1]', '$fields[2]', '$fields[3]', '$fields[4]', '$fields[5]', '$fields[6]', '$fields[7]', '$fields[8]', '$fields[9]', 'American West', FALSE)");
       }
 		}
   }
@@ -34,7 +34,7 @@ if ($fieldname[0] == 'item number' && $fieldname[1] = 'collection' && $fieldname
   while (!feof($filedata)) { 
     $fields = fgetcsv($filedata); 
     if ($fields != NULL) { 
-      $matches = $db->query("SELECT id FROM products WHERE manufacturer_reference='$fields[0]'");
+      $matches = $db->query("SELECT id FROM products WHERE reference='$fields[0]'");
       if ($matches->num_rows == 0 ) {
 
         // Replace the ' character with the html entity
@@ -43,7 +43,7 @@ if ($fieldname[0] == 'item number' && $fieldname[1] = 'collection' && $fieldname
           $fields[$i] = str_replace("'", "&#39;", $fields[$i]);
           $fields[$i] = str_replace('$', '', $fields[$i]);
         }
-        $db->query("INSERT INTO products (manufacturer_reference, collection, name, description, upc, dimensions, ws_price, price, category, manufacturer, discontinued ) VALUES ('$fields[0]', '$fields[1]', '$fields[2]', '$fields[3]', '$fields[4]', '$fields[5]', $fields[6], '$fields[7]', '$fields[8]', 'Lou-Ella', FALSE)");
+        $db->query("INSERT INTO products (reference, collection, name, description, upc, dimensions, ws_price, price, category, manufacturer, discontinued ) VALUES ('$fields[0]', '$fields[1]', '$fields[2]', '$fields[3]', '$fields[4]', '$fields[5]', $fields[6], '$fields[7]', '$fields[8]', 'Lou-Ella', FALSE)");
       }
 		}
   }
@@ -55,7 +55,7 @@ if ($fieldname[0] == 'name' && $fieldname[1] = 'collection name' && $fieldname[2
   while (!feof($filedata)) { 
     $fields = fgetcsv($filedata); 
     if ($fields != NULL) { 
-      $matches = $db->query("SELECT id FROM products WHERE manufacturer_reference='$fields[4]'");
+      $matches = $db->query("SELECT id FROM products WHERE reference='$fields[4]'");
       if ($matches->num_rows == 0 ) {
 
         // Replace the ' character with the html entity
@@ -64,7 +64,7 @@ if ($fieldname[0] == 'name' && $fieldname[1] = 'collection name' && $fieldname[2
           $fields[$i] = str_replace("'", "&#39;", $fields[$i]);
           $fields[$i] = str_replace('$', '', $fields[$i]);
         }
-        $db->query("INSERT INTO products (name, collection, category, description, manufacturer_reference, price, manufacturer, discontinued ) VALUES ('$fields[0]', '$fields[1]', '$fields[2]', '$fields[3]', '$fields[4]', '$fields[6]', 'Schaefer', FALSE)");
+        $db->query("INSERT INTO products (name, collection, category, description, reference, price, manufacturer, discontinued ) VALUES ('$fields[0]', '$fields[1]', '$fields[2]', '$fields[3]', '$fields[4]', '$fields[6]', 'Schaefer', FALSE)");
         $product_id = $db->insert_id;
         $sizes = explode(",", $fields[5]);
         foreach ($sizes as $size) {

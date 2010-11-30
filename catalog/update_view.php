@@ -1,14 +1,14 @@
 <div id='update_image'>
 
   Main Image (click to enlarge) <br />
-  <?php $main_image = "product_images/" . $product['manufacturer_reference'] . ".jpg"; ?>
-  <?php echo resize_popup_img($main_image, 250); ?>
+  <?php $main_image = "product_images/" . $product['reference'] . ".jpg"; ?>
+  <?php echo resize_popup_img($main_image, 200); ?>
   <br /><br />
 
   <form action='catalog.php' enctype="multipart/form-data" method='POST'>
     <input type='hidden' name='action' value='update_image' />
     <input type='file' name='image' size='15' />
-    <input type='hidden' name='manufacturer_reference' value='<?php echo $product['manufacturer_reference']; ?>' />
+    <input type='hidden' name='reference' value='<?php echo $product['reference']; ?>' />
     <input type='hidden' name='product_id' value='<?php echo $product['id']; ?>' />
     <input type='hidden' name='type' value='main' />
     <input type='submit' value='update' class='button'>
@@ -18,14 +18,14 @@
 
 
   Thumbnail <br />
-  <?php $tn_image = "product_images/" . $product['manufacturer_reference'] . "-tn.jpg"; ?>
-  <?php echo resize_popup_img($tn_image, 150); ?>
+  <?php $tn_image = "product_images/" . $product['reference'] . "-tn.jpg"; ?>
+  <?php echo resize_popup_img($tn_image, 125); ?>
   <br /><br />
 
   <form action='catalog.php' enctype="multipart/form-data" method='POST'>
     <input type='hidden' name='action' value='update_image' />
     <input type='file' name='image' size='15' />
-    <input type='hidden' name='manufacturer_reference' value='<?php echo $product['manufacturer_reference']; ?>' />
+    <input type='hidden' name='reference' value='<?php echo $product['reference']; ?>' />
     <input type='hidden' name='product_id' value='<?php echo $product['id']; ?>' />
     <input type='hidden' name='type' value='thumbnail' />
     <input type='submit' value='update' class='button' />
@@ -34,7 +34,7 @@
 
   Additional Images <br />  
   <div style='text-align: left;'>
-    <?php $image = "product_images/" . $product['manufacturer_reference']; ?>
+    <?php $image = "product_images/" . $product['reference']; ?>
     <?php $files = glob( $image . "-*.jpg"); ?>
     <?php foreach($files as $file) { ?>
       <?php if ($file != $main_image && $file != $tn_image) { ?>
@@ -52,7 +52,7 @@
     <form action='catalog.php' enctype="multipart/form-data" method='POST'>
       <input type='hidden' name='action' value='update_image' />
       <input type='file' name='image' size='15' />
-      <input type='hidden' name='manufacturer_reference' value='<?php echo $product['manufacturer_reference']; ?>' />
+      <input type='hidden' name='reference' value='<?php echo $product['reference']; ?>' />
       <input type='hidden' name='product_id' value='<?php echo $product['id']; ?>' />
       <input type='hidden' name='type' value='additional_images' />
       <input type='submit' value='update' class='button' />
@@ -63,71 +63,50 @@
 </div>
 
 <form action='catalog.php' method='POST'>
-<input type='hidden' name='action' value='update_product' />
-<input type='hidden' name='product_id' value='<?php echo $product['id']; ?>' />
+  <input type='hidden' name='action' value='update_product' />
+  <input type='hidden' name='product_id' value='<?php echo $product['id']; ?>' />
 
-<div id='update_text'>
-  <h3>Name</h3>
-  <input type='text' name='name' value='<?php echo $product['name']; ?>' size='40' /><br /><br />
+  <div id='update_text'>
+    <h3>Name</h3>
+    <input type='text' name='name' class='text' value='<?php echo $product['name']; ?>' size='40' /><br /><br />
   
-  <h3>Price</h3>
-  <input type='text' name='price' value='<?php echo $product['price']; ?>' size='40' /><br /><br />
+    <h3>Price</h3>
+    <input type='text' name='price' class='text' value='<?php echo $product['price']; ?>' size='40' /><br /><br />
 
-  <h3>Wholesale Price</h3>
-  <input type='text' name='ws_price' value='<?php echo $product['ws_price']; ?>' size='40' /><br /><br />
+    <h3>Cost</h3>
+    <input type='text' name='ws_price' class='text' value='<?php echo $product['cost']; ?>' size='40' /><br /><br />
 
-  <h3>Manufacturer</h3>
-  <input type='text' name='manufacturer' value='<?php echo $product['manufacturer']; ?>' size='40' /><br /><br />
+    <h3>Manufacturer</h3>
+    <input type='text' name='manufacturer' class='text' value='<?php echo $product['manufacturer']; ?>' size='40' /><br /><br />
   
-  <h3>Reference</h3>
-  <input type='text' name='manufacturer_reference' value='<?php echo $product['manufacturer_reference']; ?>' size='40' /><br /><br />
+    <h3>Reference</h3>
+    <input type='text' name='reference' class='text' value='<?php echo $product['reference']; ?>' size='40' /><br /><br />
   
-  <h3>UPC</h3>
-  <input type='text' name='upc' value='<?php echo $product['upc']; ?>' size='40' /><br /><br />
-
-  <h3>Parent Category</h3>
-  <select name='parent_category'>
-  <?php $select_options = array('','Accessories', 'Decor', 'Hats', 'Kids')?>
-  <?php foreach ($select_options as $select_option) { ?>
-      <?php if ($product['parent_category'] == $select_option) { ?>
-        <?php echo "<option selected='selected'>$select_option</option>"?>
-      <?php } else { ?>
-        <?php echo "<option>$select_option</option>"?>
-      <?php } ?>
-   <?php } ?>
-  </select>
-  <br /><br />
-
+    <h3>UPC</h3>
+    <input type='text' name='upc' class='text' value='<?php echo $product['upc']; ?>' size='40' /><br /><br />
   
-  <h3>Category</h3>
-  <input type='text' name='category' value='<?php echo $product['category']; ?>' size='40' /><br /><br />
+    <h3>Category</h3>
+    <input type='text' name='category' class='text' value='<?php echo $product['category']; ?>' size='40' /><br /><br />
   
-  <h3>Collection</h3>
-  <input type='text' name='collection' value='<?php echo $product['collection']; ?>' size='40' /><br /><br />
-
-  <h3>Dimensions</h3>
-  <input type='text' name='strap_length' value='<?php echo $product['dimensions']; ?>' size='40' /><br /><br />
-
-  <h3>Strap Length</h3>
-  <input type='text' name='strap_length' value='<?php echo $product['strap_length']; ?>' size='40' /><br /><br />
-
-  <span class='h3'>Free Shipping</span>
-  <input type='checkbox' name='free_shipping' value='1' size='40' <?php if ($product['free_shipping'] == 1) {echo "checked='checked'"; } ?> /><br /><br />
-
-  <span class='h3'>Discontinued</span>
-  <input type='checkbox' name='discontinued' value='1' size='40' <?php if ($product['discontinued'] == 1) {echo "checked='checked'"; } ?> /><br /><br />
+    <span class='h3'>Discontinued</span>
+    <input type='checkbox' name='discontinued' value='1' size='40' <?php if ($product['discontinued'] == 1) {echo "checked='checked'"; } ?> /><br /><br />
 
 
-</div>
+  </div>
+  <div style='clear: both;'>
+  </div>
 
+  <div>
+    <span class='h3'>Description</span><br />
+    <textarea name='description' class='text text_area'><?php echo $product['description']; ?></textarea> <br /><br />
+  </div>
 
-<div id='update_description'>
-
-  <h3 style='text-align: center'>Description</h3>
-  <textarea name='description' style='width: 100%; height: 100px;'><?php echo $product['description']; ?></textarea> <br /><br />
-  <input type='submit' value='update' class='button' /> <br /><br />
+  <div class='button_div'>
+    <input type='submit' value='update' class='button' /> <br /><br />
+  </div>
 </form>
 
+<div>
 <h3 style='text-align: center;'>Options</h3>
 <div style='width: 100%; text-align: center;'>
   *** All options with the same option name will be grouped together in the user view ***
@@ -142,13 +121,13 @@
   <form action='catalog.php' method='post'>
   <tr style='text-align: center;'>
     <td>  
-     <input type='text' name='option_name' size='15' />
+     <input type='text' class='text short_text' name='option_name' size='15' />
     </td>
     <td>
-      <input type='text' name='option' size='15' />
+      <input type='text' class='text short_text' name='option' size='15' />
     </td>
     <td>
-      <input type='text' name='price_impact' size='10' style='text-align: right;' />
+      <input type='text' class='text short_text' name='price_impact' size='10' style='text-align: right;' />
     <td>
       <input type='hidden' name='product_id' value='<?php echo $product['id']; ?>' />
       <input type='hidden' name='action' value='new_option' />
@@ -163,13 +142,13 @@
     <form action='catalog.php' method='post'>
     <tr style='text-align: center'>
       <td>  
-       <input type='text' name='option_name' size='15' value='<?php echo $option['option_name']; ?>' />
+       <input type='text' name='option_name' class='text short_text' value='<?php echo $option['option_name']; ?>' />
       </td>
       <td>
-        <input type='text' name='option' size='15' value='<?php echo $option['options']; ?>' />
+        <input type='text' name='option' class='text short_text' value='<?php echo $option['options']; ?>' />
       </td>
       <td>
-        <input type='text' name='price_impact' size='10' style='text-align: right;' value='<?php echo $option['price_impact']; ?>'  />
+        <input type='text' name='price_impact' class='text short_text' style='text-align: right;' value='<?php echo $option['price_impact']; ?>'  />
       <td>
         <input type='hidden' name='option_id' value='<?php echo $option['id']; ?>' />
         <input type='hidden' name='product_id' value='<?php echo $product_id; ?>' />

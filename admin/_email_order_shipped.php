@@ -4,8 +4,8 @@ $cart_items = $db->query("SELECT product_id, quantity, options, price FROM cart_
 $cart = $db->query("SELECT * FROM cart WHERE id='$cart_id'");
 $cart = $cart->fetch_array(MYSQLI_ASSOC);
  
-  $my_email = 'Orders@HAVWesternWear.com';
-  $my_name = 'HAV Western Wear';
+  $my_email = 'Orders@SafariStuf.com';
+  $my_name = 'Safari Stuff';
  
    require("lib/class.phpmailer.php");
    
@@ -19,12 +19,12 @@ $cart = $cart->fetch_array(MYSQLI_ASSOC);
 
    $mail->AddAddress($email,  $cart['name']);
 
-   $mail->Subject = "HAV Western Wear - Order Shipped";
+   $mail->Subject = "Order Shipped";
 
    $body = "
 <html>
   <body>
-    <h3>HAV Western Wear</h3>
+    <h3>Safari Stuff</h3>
     <p>Thank you for your order, it has now shipped!</p>
     <p>You can track your order online at: " . $cart['tracking_number'] . "
     <p>Your order was shipped to:</p>

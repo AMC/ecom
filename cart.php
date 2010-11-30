@@ -31,19 +31,19 @@ if (action() == 'discount_add') {
 }
 
 if (action() == 'add_product') { 
-  include("cart/_cart_add_product.php"); } 
+  include("cart/add_product.php"); } 
 
 if (action() == 'delete_product') { 
-  include("cart/_cart_delete_product.php"); }
+  include("cart/delete_product.php"); }
   
 if (action() == 'empty_cart') { 
-  include("cart/_cart_empty_cart.php"); }
+  include("cart/empty_cart.php"); }
 
 if (action() == 'update_cart') { 
-  include("cart/_cart_update_cart.php"); }
+  include("cart/update_cart.php"); }
 
 if (action() == 'none' || action() == 'index' || action() == "") {
-  include("cart/_cart_index.php"); }
+  include("cart/index.php"); }
   
   
 ?>

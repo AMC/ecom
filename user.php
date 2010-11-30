@@ -34,40 +34,40 @@ $user_id = user_id();
 
 
 if (action() == 'reset_password') {
-  include("user/_user_reset_password.php");
+  include("user/reset_password.php");
 }
 
 if (action() == 'lost_password') {
-  include("user/_user_lost_password.php");  
+  include("user/lost_password.php");  
 }
 
 if (action() == 'create_user') {
-  include("user/_user_creation.php"); 
+  include("user/creation.php"); 
 }
 
 if (action() == 'register_user') {
-  include("user/_user_registration.php"); 
+  include("user/registration.php"); 
 }
 
 if (action() == 'login' && isset($email) && isset($password_hash)) {
-  include("user/_user_login.php"); 
+  include("user/login.php"); 
 }
 
 if (action() == 'logout') {
-  include("user/_user_logout.php"); 
+  include("user/logout.php"); 
 }
 
 if (action() == 'update_password') {
-  include("user/_user_update_password.php");
+  include("user/update_password.php");
 }
 
 if (action() == 'update_user') {
-  include("user/_user_update_user.php");
+  include("user/update_user.php");
 }
 
 
 if (action() == 'user_information') {
-  include("user/_user_change_information.php");
+  include("user/change_information.php");
 }
 
 if (action() == 'none' || action() == '') { 

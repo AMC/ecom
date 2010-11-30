@@ -1,7 +1,5 @@
 <?php 
 
-
-
 include_once("config/initialize.php"); 
 
 $stylesheets = array('admin.css', 'calendar.css'); // Overwrite layout.css

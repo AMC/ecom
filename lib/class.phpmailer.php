@@ -2306,7 +2306,7 @@ class PHPMailer {
   protected function doCallback($isSent,$to,$cc,$bcc,$subject,$body) {
     if (!empty($this->action_function) && function_exists($this->action_function)) {
       $params = array($isSent,$to,$cc,$bcc,$subject,$body);
-      call_user_func_array($this->action_function,$params);
+      callfunc_array($this->action_function,$params);
     }
   }
 }

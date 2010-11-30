@@ -1,7 +1,7 @@
 
-<?php include("layout/_layout_top.php"); ?>
-<?php include("layout/_layout_menu.php"); ?>
-<?php include("layout/_layout_flash.php"); ?>
+<?php include("layout/header.php"); ?>
+<?php include("layout/menu.php"); ?>
+<?php include("layout/flash_message.php"); ?>
 
 <?php $categories = $db->query("SELECT category FROM shipping WHERE id='$shipping_id'"); ?>
 <?php $category = $categories->fetch_array(MYSQLI_ASSOC); ?>
@@ -52,4 +52,4 @@
   <div style="clear: both"></div>
 </div>
 
-<?php include("layout/_layout_bottom.php"); ?>
+<?php include("layout/footer.php"); ?>

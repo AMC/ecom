@@ -102,7 +102,7 @@
           </td>
           <td>
             <?php echo $product['name']; ?> <br />
-            <?php echo $product['manufacturer']; ?> #<?php echo $product['manufacturer_reference']; ?> 
+            <?php echo $product['manufacturer']; ?> #<?php echo $product['reference']; ?> 
             <?php if ( !empty($product['collection'])) { echo "<br />Collection: " . $product['collection']; } ?>
 
             <?php $option_ids = explode(",", $cart_item['options']); ?>

@@ -1,17 +1,16 @@
-<div id='product_images'>
-  <div id='product_image'>
+<div id='update_image'>
 
-    <?php $image = "product_images/" . $product['manufacturer_reference'] . ".jpg"; ?>
+
+    <?php $image = "product_images/" . $product['reference'] . ".jpg"; ?>
     <?php echo resize_popup_img($image, 250); ?><br />
     (Click to Enlarge)<br /><br />
 
-  </div>
 
-  <div id='additional_images'>
-      <?php $image = "product_images/" . $product['manufacturer_reference']; ?>
+
+      <?php $image = "product_images/" . $product['reference']; ?>
       <?php $files = glob( $image . "-*.jpg"); ?>
-      <?php $main_image = "product_images/" . $product['manufacturer_reference'] . ".jpg"; ?>
-      <?php $tn_image = "product_images/" . $product['manufacturer_reference'] . "-tn.jpg"; ?>
+      <?php $main_image = "product_images/" . $product['reference'] . ".jpg"; ?>
+      <?php $tn_image = "product_images/" . $product['reference'] . "-tn.jpg"; ?>
       <?php foreach($files as $file) { ?>
         <?php if ($file != $main_image && $file != $tn_image) { ?>
           <div class='additional_images'>
@@ -20,10 +19,10 @@
         <?php } ?>
       <?php } ?>
     <br /><br />  
-  </div>
+
 </div>
 
-<div id='product_text'>
+<div id='update_text'>
 
   <span class='h3'><?php echo $product['name'];?></span> <br /> 
   <span class='h3'> <?php echo money_format('%(#10n', $product['price']); ?> </span>
@@ -41,19 +40,9 @@
   
   
   <br /><br />
-  <?php echo $product['manufacturer']; ?> #<?php echo $product['manufacturer_reference']; ?> <br />
-  Collection: <?php echo $product['collection']; ?><br />
-  <?php if ( !empty($product['dimensions'])) { ?>
-    Dimensions: <?php echo $product['dimensions']; ?><br />
-  <?php } ?>
-  <?php if ($product['strap_length'] != "N/A" OR empty($product['strap_length'])) { ?>
-    Strap Length: <?php echo $product['strap_length']; ?><br />
-  <?php  }?>
-  <br />
+  <?php echo $product['manufacturer']; ?> #<?php echo $product['reference']; ?> <br /> <br />
   
-  <?php if ($product['free_shipping'] == 1) { ?>
-    <h3>Free Shipping!</h3><br />
-  <?php  }?>
+
   
   <?php $option_names = $db->query("SELECT DISTINCT(option_name) FROM product_options WHERE product_id='$product_id' ORDER BY option_name"); ?>
   <?php while ($option_name = $option_names->fetch_array(MYSQLI_ASSOC)) { ?>
@@ -73,11 +62,12 @@
 
 </div>
 
-
+<div style='clear:both'>
+</div>
 
 <div id='product_description'>
+  <span class='h3'>Description</span><br />
   <?php echo $product['description']; ?><br /><br />
 </div>
 
 
-<?php include("catalog/other_items_collection.php"); ?>

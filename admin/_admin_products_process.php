@@ -1,7 +1,7 @@
 
-<?php include("layout/_layout_top.php"); ?>
-<?php include("layout/_layout_menu.php"); ?>
-<?php include("layout/_layout_flash.php"); ?>
+<?php include("layout/header.php"); ?>
+<?php include("layout/menu.php"); ?>
+<?php include("layout/flash_message.php"); ?>
 
 <div id="container">
   <h3> Process Products File </h3>
@@ -50,4 +50,4 @@
   </div>
 </div>
 
-<?php include("layout/_layout_bottom.php"); ?>
+<?php include("layout/footer.php"); ?>

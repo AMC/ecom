@@ -1,6 +1,6 @@
-<?php include("layout/_layout_top.php"); ?>
-<?php include("layout/_layout_menu.php"); ?>
-<?php include("layout/_layout_flash.php"); ?>
+<?php include("layout/header.php"); ?>
+<?php include("layout/menu.php"); ?>
+<?php include("layout/flash_message.php"); ?>
 
 
 <?php $promotions = $db->query("SELECT * FROM promotions WHERE id = '$promo_id'"); ?>
@@ -172,4 +172,4 @@
   <div style="clear: both"></div>
 </div>
 
-<?php include("layout/_layout_bottom.php"); ?>
+<?php include("layout/footer.php"); ?>

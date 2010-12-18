@@ -21,6 +21,7 @@
   <div id='admin_menu' class='menu' >
     <a href='admin.php'>Dashboard</a>
     <a href='catalog.php?action=new_product'>New Product</a>
+    <a href='admin.php?action=categories'>Categories</a>
     <a href='admin.php?action=promotions'>Sales and Promotions</a>
     <a href='admin.php?action=shipping_table'>Shipping Table</a>
     <a href='admin.php'>Reports</a>

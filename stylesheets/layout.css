@@ -106,10 +106,9 @@ ul {
 
 #left_column {
   float: left;
-  width: 190px;
+  width: 250px;
   min-height: 300px;
   background: #DDEDF9;
-  padding: 30px;
   border-top: 12px solid #0c4d7d;
   text-align: center;
 }
@@ -136,12 +135,6 @@ ul {
 
 #footer a:hover {
   color: #000;
-}
-
-.selected_menu_item, .selected_menu_item a{
-  color: #FFF;
-  background: #0C4D7D;
-  padding: 2px 20px;
 }
 
 .split_screen_left, .split_screen_right, .full_screen {

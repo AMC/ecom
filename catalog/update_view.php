@@ -70,11 +70,17 @@
     <h3>Name</h3>
     <input type='text' name='name' class='text' value='<?php echo $product['name']; ?>' size='40' /><br /><br />
   
+    <h3>Quantity</h3>
+    <input type='text' name='quantity' class='text' value='<?php echo $product['quantity']; ?>' size='40' /> <br /><br />
+  
     <h3>Price</h3>
     <input type='text' name='price' class='text' value='<?php echo $product['price']; ?>' size='40' /><br /><br />
 
     <h3>Cost</h3>
-    <input type='text' name='ws_price' class='text' value='<?php echo $product['cost']; ?>' size='40' /><br /><br />
+    <input type='text' name='cost' class='text' value='<?php echo $product['cost']; ?>' size='40' /><br /><br />
+
+    <h3>Weight</h3>
+    <input type='text' name='weight' class='text' value='<?php echo $product['weight']; ?>' size='40' /><br /><br />
 
     <h3>Manufacturer</h3>
     <input type='text' name='manufacturer' class='text' value='<?php echo $product['manufacturer']; ?>' size='40' /><br /><br />

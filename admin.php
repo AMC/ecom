@@ -45,6 +45,13 @@ foreach ($form_variables as $var) {
   $$var = request_var($db, $var);
 }
 
+# Category variables
+$form_variables = array('view');
+foreach ($form_variables as $var) {
+  $$var = request_var($db, $var);
+}
+
+
 
 
 if (role() != 'admin') {
@@ -128,9 +135,20 @@ if (action() == 'delete_promotion') {
   include('admin/promotion_delete.php');
 }
 
-
 if (action() == 'promotions') {
   include("admin/promotions_index.php");
+}
+
+if (action() == 'category_contents') {
+  include('admin/category_contents.php');
+}
+
+if (action() == 'update_category_image') {
+  include('admin/categories_update.php');
+}
+
+if (action() == 'categories') {
+  include('admin/categories.php');
 }
 
 if (action() == 'none') {

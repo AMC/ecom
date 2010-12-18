@@ -20,6 +20,12 @@
     <h3> Billing Information: </h3>
     <br />
   
+    Click here to checkout with:<br />
+    &nbsp;&nbsp; &nbsp;
+    <a href=''> <img src='images/paypal_logo.gif' /> </a> <br />
+    
+    -------------------- OR ------------------- <br /><br />
+
     Email: <br />
     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == TRUE && empty($email)) { ?>
       <input type='text' name='email' class='text' value='<?php echo $_SESSION['user']['email']; ?>' />
@@ -30,7 +36,6 @@
 
     Phone: <br />
     <input type='text' name='phone' class='text' value='<?php echo $phone; ?>' /><br /><br />
-  
   
     Name on Card: <br />
     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == TRUE && empty($cc_name)) { ?>

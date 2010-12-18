@@ -8,7 +8,7 @@ if (role() != 'admin') {
 } elseif ( !is_numeric($price) ) {
   $_SESSION['flash'][] = 'Price must be a number';
 } else {
-  if ($db->query("UPDATE products SET name='$name', manufacturer='$manufacturer', reference='$reference', upc='$upc', category='$category', price='$price', cost='$cost', discontinued='$discontinued', description='$description' WHERE id='$product_id' ")) {
+  if ($db->query("UPDATE products SET name='$name', quantity='$quantity', manufacturer='$manufacturer', reference='$reference', upc='$upc', category='$category', price='$price', cost='$cost', weight='$weight', discontinued='$discontinued', description='$description' WHERE id='$product_id' ")) {
     $_SESSION['flash'][] = 'Product information saved';
   } else {
     $_SESSION['flash'][] = $db->error;

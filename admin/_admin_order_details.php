@@ -109,7 +109,7 @@
     <hr />
 
     <table id='cart'>
-      <th style="width: 180px;"> Quantity </th>
+      <th style="width: 180px;"> Shipped - Backorder</th>
       <th style="width: 500px;"> Product </th>
       <th style="width: 100px;"> Price </th>
       <th style="width: 120px;"></th>
@@ -122,7 +122,10 @@
             <?php $product_subtotal = $cart_item['quantity'] * $product['price']; ?>
             <?php $order_total = $order_total + $product_subtotal; ?>
 
-            <?php echo $cart_item['quantity']; ?>
+            <input type='text' name='shipped' value='<?php echo $cart_item['quantity']; ?>' size='3' />
+             - 
+            <input type='text' name='backorder' value='3' size='3' />
+            <input type='submit' value='update' />
           </td>
           <td>
             <?php echo $product['name']; ?> <br />

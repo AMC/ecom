@@ -18,6 +18,8 @@ if ($amt_low > $amt_high) {
   $amt_high = 100000000;
 }
 
+
+
 $order_query = "SELECT * FROM cart 
                  WHERE id LIKE '%$order_id%' 
                  AND name LIKE '%$customer_name%'

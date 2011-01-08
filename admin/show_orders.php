@@ -55,7 +55,6 @@
     <td>
       <a href="admin.php?action=invoice&cart_id=<?php echo $order['id']; ?>" target='_blank'>[invoice]</a>
       <a href="admin.php?action=shipping&cart_id=<?php echo $order['id']; ?>" target='_blank'>[shipping]</a>
-      <a href="admin.php?action=vendor&cart_id=<?php echo $order['id']; ?>" target='_blank'>[vendor]</a>
     </td>
 <?php } ?>
 

@@ -19,12 +19,13 @@
 
 <?php if (role() == 'admin') {?>
   <div id='admin_menu' class='menu' >
-    <a href='admin.php'>Dashboard</a>
+    <a href='admin.php?order_status=Pending'>Dashboard</a>
     <a href='catalog.php?action=new'>New Product</a>
-    <a href='admin.php?action=promotions'>Sales and Promotions</a>
-    <a href='admin.php?action=process_products'>Process Products File</a>
-    <a href='admin.php?action=shipping_table'>Shipping Table</a>
-    <a href='admin.php'>Reports</a>
+    <a href='admin.php?action=promotions'>Sales</a>
+    <a href='admin.php?action=process_products'>Process Files</a>
+    <a href='admin.php?action=shipping_table'>Shipping</a>
+    <a href='admin.php?action=pages'>Pages</a>
+    <a href='reports.php'>Reports</a>
     
   </div>
 <?php } ?>

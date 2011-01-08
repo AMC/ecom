@@ -11,6 +11,10 @@
 
 <div id="container">
   <h3> Order #<?php echo $cart['id']; ?> </h3>
+
+  Today is: <?php echo date("F j, Y"); ?>
+  <br /><br />
+  
   <form action='admin.php' method='POST'>
   <input type='hidden' name='action' value='order_update' />
   <input type='hidden' name='cart_id' value='<?php echo $cart_id?>' />

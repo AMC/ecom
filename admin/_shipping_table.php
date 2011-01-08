@@ -68,7 +68,64 @@
   </table>
   
   <br />
+  <br />
+  <br />
   
+
+  <h3> Holiday Shipping Schedule </h3>
+  <em>To be sure your package arrives by {Holiday} please see delivery schedule:</em>
+  <table style='text-align: center; width: 100%'>
+    <th>display</th>
+    <th>holiday</th>
+    <th>ground</th>
+    <th>third day</th>
+    <th>second day</th>
+    <th>next day</th>
+    <th></th>
+    <th></th>
+
+    <form method='post' action='admin.php'>
+    <input type='hidden' name='action' value='hs_update' />
+    
+    <?php $hs = $db->query("SELECT display, name, ground, third_day, second_day, next_day FROM holiday_shipping"); ?>
+    
+    <?php $hs = $hs->fetch_array(MYSQLI_ASSOC); ?>
+
+  <tr>
+    <td>
+      <?php if ($hs['display'] == 1) { ?> 
+        <input type='checkbox' name='hs_display' checked>
+      <?php } else { ?>
+        <input type='checkbox' name='hs_display'>
+      <?php } ?>
+    </td>
+    <td>
+       <input type='text' name='hs_name' value= '<?php echo $hs['name']; ?>' size='15' />
+     </td>
+     
+    <td>
+       <input type='text' class='calendarSelectDate' name='hs_ground' value= '<?php echo $hs['ground']; ?>' size='15' readyonly />
+       <div id="calendarDiv"></div>
+     </td>
+     
+     <td>
+       <input type='text' class='calendarSelectDate' name='hs_third_day' value= '<?php echo $hs['third_day']; ?>' size='15' readyonly />
+     </td>
+
+     <td>
+       <input type='text' class='calendarSelectDate' name='hs_second_day' value= '<?php echo $hs['second_day']; ?>' size='15' readyonly />
+     </td>
+     
+     <td>
+       <input type='text' class='calendarSelectDate' name='hs_next_day' value= '<?php echo $hs['next_day']; ?>' size='15' readyonly />
+     </td>
+     
+     <td>
+       <input type='submit' value='update' />
+     </td>
+    </tr>
+  </table>
+  </form>
 
 
   <div style="clear: both"></div>

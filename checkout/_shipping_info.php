@@ -20,7 +20,55 @@
   <form action='checkout.php' method='POST' >
     <h3> Shipping Information: </h3>
     <br />
-    
+    <?php $hs = $db->query("SELECT display, name, ground, third_day, second_day, next_day FROM holiday_shipping"); ?>
+    <?php $hs = $hs->fetch_array(MYSQLI_ASSOC); ?>
+
+    <?php if ($hs['display'] == 1) { ?>
+    <table>
+      <tr>
+        <td colspan='2' style='font-weight: bold'>
+          <em>To be sure your package arrives by <?php echo $hs['name']; ?> please see delivery schedule:</em>
+        </td>
+      </tr>
+      <tr>
+        <td style='padding-left: 20px;'>
+          UPS Ground
+        </td>
+        <td>
+          Order by noon <?php echo date( "D F j" ,strtotime($hs['ground'])); ?>
+        </td>
+      </tr>
+      <tr>
+        <td style='padding-left: 20px;'>
+          UPS Third Day
+        </td>
+        <td>
+          Order by noon <?php echo date( "D F j" ,strtotime($hs['third_day'])); ?>     
+        </td>
+      </tr>
+      <tr>
+        <td style='padding-left: 20px;'>
+          2nd Day Air
+        </td>
+        <td>
+          Order by noon <?php echo date( "D F j" ,strtotime($hs['second_day'])); ?>
+        </td>
+      </tr>
+      <tr>
+        <td style='padding-left: 20px;'>
+          Next Day Air
+        </td>
+        <td>
+          Order by noon <?php echo date( "D F j" ,strtotime($hs['next_day'])); ?>
+        </td>
+      </tr>
+    </table>
+    <br />
+    <?php } ?>
+
+
+
+
     Shipping Method:<br />
     <?php $cart_id = cart_id($db); ?>
     <?php $subtotal_shipping = 0; ?>

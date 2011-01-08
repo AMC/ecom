@@ -47,6 +47,19 @@ foreach ($form_variables as $var) {
   $$var = request_var($db, $var);
 }
 
+# Holiday Shipping Variables
+$form_variables = array('hs_display', 'hs_name', 'hs_ground', 'hs_third_day', 'hs_second_day', 'hs_next_day');
+foreach ($form_variables as $var) {
+  $$var = request_var($db, $var);
+}
+
+# Pages Variables
+$form_variables = array('page_id', 'page_name', 'page_image', 'page_text');
+foreach ($form_variables as $var) {
+  $$var = request_var($db, $var);
+}
+
+
 
 
 if (role() != 'admin') {
@@ -98,6 +111,10 @@ if (action() == 'update_shipping_tier') {
   include("admin/_shipping_table_update.php");
 }
 
+if (action() == 'hs_update') {
+  include('admin/hs_update.php');
+}
+
 if (action() == 'shipping_view_products') {
   include("admin/_shipping_view_products.php");
 }
@@ -142,6 +159,24 @@ if (action() == 'none') {
 if (action() == 'calendar') {
   include("admin/calendar.php");
 }
+
+if (action() == 'update_logo') {
+  include('admin/logo_update.php');
+}
+
+if (action() == 'update_page') {
+  include('admin/pages_update.php');
+}
+
+if (action() == 'edit_page') {
+  include('admin/pages_edit.php');
+}
+
+if (action() == 'pages') {
+  include("admin/pages.php");
+}
+
+
 
   
 ?>

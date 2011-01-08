@@ -136,12 +136,12 @@
   	</script>
 
 </head>
-<body onload="MM_preloadImages('images/schaefer_box2.png','images/accessories_box2.png','images/decor_box2.png')">
+<body onLoad="MM_preloadImages('images/schaefer_box2.png','images/accessories_box2.png','images/decor_box2.png')">
   
 <div id="top">
   <div id="header">
     <a href="index.php">
-      <img src="images/logo.png" width="563" height="63" alt="HAV Western Wear" border="0" style="padding-top:10px" />
+      <img src="files/logo.png" width="563" alt="HAV Western Wear" border="0" style="padding-top:10px" />
     </a>
     <div class="address">
       14902 E. Sprague Ave., Spokane, WA 99216,  Toll-Free 1-866-926-2360

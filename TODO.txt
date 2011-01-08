@@ -89,6 +89,17 @@ X     Order Search
 X     Sales results
 X     Pending / Processed / Cancelled Orders
 -----------------
+
+*  Sales and Promotions
+X    Order by End Date
+X    Bug: Discount should update when cart changes
+X    Promotion can have Discount code or Discount Amount
+     Currently only applies to storewide, with discount code
+
+* Bug: Checkout - verify phone number
+     
+*  SSH Key to Kevin
+
 X  Invoices, Email and Order Summary
 X    Order #
 X    Manufacturer
@@ -97,20 +108,6 @@ X    Collection
 X    Shipping Type
 X    Bill To and Ship To
 X    Move Phone and Email to Billing Info
-X  Flash Message color: 900
-
-*  Sales and Promotions
-X    Order by End Date
-X    Bug: Discount should update when cart changes
-X    Promotion can have Discount code or Discount Amount
-     Currently only applies to storewide, with discount code
-
-Multiple Images per Item
-
-* Bug: Checkout - verify phone number
-     
-*  SSH Key to Kevin
-
 
 *  Menu Landing Pages
      Collections
@@ -118,7 +115,7 @@ Multiple Images per Item
 
 *  Contact Page
 
-
+X  Flash Message color: 900
 
    Shipping Labels
      ups #143W54  

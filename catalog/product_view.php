@@ -46,7 +46,7 @@
   <?php if ( !empty($product['dimensions'])) { ?>
     Dimensions: <?php echo $product['dimensions']; ?><br />
   <?php } ?>
-  <?php if ($product['strap_length'] != "N/A" OR empty($product['strap_length'])) { ?>
+  <?php if ($product['strap_length'] != "N/A" OR !empty($product['strap_length'])) { ?>
     Strap Length: <?php echo $product['strap_length']; ?><br />
   <?php  }?>
   <br />

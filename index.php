@@ -2,38 +2,48 @@
 <?php include_once("config/database.php"); ?>
 <?php include_once("config/functions.php"); ?>
 
-<?php $stylesheets[] = ''; ?>
+<?php $stylesheets[] = 'catalog.css'; ?>
+<?php $javascripts[] = 'slideshow.js'; ?>
+
 
 <?php include("layout/header.php"); ?>
 <?php include("layout/menu.php"); ?>
 <?php include("layout/flash_message.php"); ?>
 
 <div id='container'>
-  <div id='slideshow'>
-		<iframe src="scroller.html" name="right-iframe" scroll="no" marginwidth="0" marginheight="0" align="center" frameborder="0" height="199" scrolling="no" width="100%"></iframe>
-  </div>
   
-  <div id='left_column'>
-    &nbsp;
-  </div>
+  <?php include 'catalog/menu.php'; ?>
   
   <div id='right_column'>
+    <div id='slideshow'>
+  		<img src="images/slideshow/pic1.jpg" name="SlideShow" width="100%" height="392px" id="VU">
+    </div>
+    <br /><br />
+    
   	<h1>Welcome!</h1>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan elit ut urna dictum nec imperdiet mauris varius. 
-      Integer posuere velit eget sem bibendum vestibulum. Etiam mattis gravida dignissim. Quisque vehicula, elit quis semper porta, 
-      leo nisl volutpat mauris, et viverra nunc odio id mi. Phasellus fermentum ligula a lectus hendrerit ut tempor metus tristique. 
-      Donec lacinia congue hendrerit. Aliquam accumsan, eros blandit pulvinar blandit, felis elit mattis ligula, quis semper quam 
-      purus ac libero. Sed in ante nisl. Proin placerat augue et nibh dignissim accumsan rhoncus nunc sagittis. Aenean tristique 
-      orci at lectus dignissim quis hendrerit odio feugiat. Sed facilisis massa id orci bibendum a vulputate enim hendrerit. Maecenas 
-      consectetur sodales arcu quis pellentesque.
-  	</p>
+      SafariStuff&trade; is your one stop shopping center for unique, one of a kind items that you'll find nowhere else on the internet!
+		</p>
     <p>
-  		Ut malesuada, mauris sed gravida consectetur, mauris risus accumsan sapien, in vulputate massa dui pellentesque est. Nunc luctus 
-      pellentesque sem vel egestas. Nam vel nulla at augue porttitor aliquam ac egestas nulla. Suspendisse nec tellus vestibulum lacus 
-      interdum fermentum. Fusce tristique lacinia viverra. Sed vel magna eget lectus viverra rutrum. Mauris eu mattis magna. Morbi 
-      quis arcu quis purus tempus mollis. Aenean quis nisi at lorem condimentum fringilla non in mauris. Donec porttitor feugiat 
-      euismod. Proin mi enim, fermentum et tempor non, consectetur vitae leo. 
+	  	We have the answer you're looking for especially when you're racking your brain trying to come up with something for that 
+      person who has <i>everything</i>.
+    </p>
+    <p>
+      As you look through our inventory you'll quickly see that our artists use such wonders of nature as Elk Antlers to 
+      create gifts that simply can't be duplicated.
+    </p>
+    <p>
+		  Make that person you're shopping for feel special with a gift from SafariStuff.   
+    </p>
+    <p>
+  		We at SafariStuff also invite you to visit our sister site:  <a href="http://www.secondgradesafari.org" target="_blank">
+      www.secondgradesafari.org</a> where you'll find fun online games, a way to benefit the students in your school and how 
+      you can get discounts on our merchandise.  
+    </p>
+
+    <p>
+  		<font size="-2"><i>*A portion of every dollar from merchandise sold on SafariStuff goes to the Save the Giraffe Foundation 
+      and other Wildlife organizations.</i></font>
     </p>
     
   </div>

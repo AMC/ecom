@@ -15,6 +15,8 @@
 
 <div style='width: 100%; font-size: 16px; font-weight: bold; text-align: center'>
   <?php echo "$selection"; ?> <br /><br />
+  
+  <?php echo "<br /><a href='care.php'>Care Instructions</a><br />"; ?>
 </div>
 
 

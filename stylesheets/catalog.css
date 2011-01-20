@@ -10,9 +10,9 @@ divs {
   border: 1px solid #0C4D7D;
 }
 
-.product_image {
+.product_image, .product_image img {
   float: left;
-  min-height: 75px;
+  max-height: 125px;
 }
 
 .product_text {
@@ -37,25 +37,33 @@ divs {
 
 .category {
   height: 60px;
-  margin: 5px auto;
-  background: #0C4D7D no-repeat;
+  margin: 2px auto;
+  background: url(../images/category_background.jpg) no-repeat;
+  background-position: -250px 0;
 }
 
 .category img {
   float: left;
-  margin: -15px 0px 0px -5px;
+  margin: -15px 0px 0px -6px;
+  max-height: 50px;
+  max-width: 60px;
 }
 
 
 .category a {
-  color: #FFF;
+  color: #000;
   display: block;
   padding: 20px 10px;
   width: 200px;
 }
 
+.category a:hover {
+  color: #FFF;
+}
+
 .category:hover {
-  background: #194C10;
+  background-position: 0px 0;
+
 }
 
 .category .selected, .category .selected a{

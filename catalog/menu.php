@@ -6,7 +6,7 @@
      <?php $current = $menu_category['category']; ?>
      
      <li class='category selected'>
-       <a href='<?php echo $curl;?>?parent=accessories&view=<?php echo $menu_view; ?>'>
+       <a href='catalog.php?parent=accessories&view=<?php echo $menu_view; ?>'>
          <?php $image = 'CAT-' . $menu_view . '.jpg'; ?>
          <?php if (file_exists('product_images/' . $image)) { ?> 
            <img src='product_images/<?php echo $image; ?>' />

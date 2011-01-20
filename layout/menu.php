@@ -4,7 +4,7 @@
     <a href='about.php'>About Us</a>
     <a href='catalog.php'>Products</a>
     <a href='policies.php'>Policies</a>
-    <a href='partners.php'>Partners</a>
+    <a href='partners.php'>Links</a>
     <a href='contact.php'>Contact Us</a>
 
   <?php if (!empty($_SESSION['logged_in']) && $_SESSION['logged_in'] == 'TRUE') { ?> 
@@ -22,8 +22,9 @@
     <a href='admin.php'>Dashboard</a>
     <a href='catalog.php?action=new_product'>New Product</a>
     <a href='admin.php?action=categories'>Categories</a>
-    <a href='admin.php?action=promotions'>Sales and Promotions</a>
-    <a href='admin.php?action=shipping_table'>Shipping Table</a>
+    <a href='admin.php?action=promotions'>Sales</a>
+    <a href='admin.php?action=shipping_table'>Shipping</a>
+    <a href='admin.php?action=pages'>Pages</a>
     <a href='admin.php'>Reports</a>
     
   </div>

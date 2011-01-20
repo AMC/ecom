@@ -7,7 +7,7 @@ divs {
 }
 
 body {
-	background:#61b5fb url(../images/clouds-bg.jpg) repeat-x fixed;
+	background:#C2E0F8 url(../images/body_background.jpg) repeat-x;
 	padding: 0px;
 	margin: 0px;
   font-family: Verdana, Geneva, sans-serif;
@@ -43,6 +43,12 @@ ul {
 
 #header {
   padding: 10px 0px;
+  margin: 0px auto;
+	background:#61b5fb url(../images/background.jpg) repeat-x;
+}
+
+#header_image {
+  width: 1105px;
   margin: 0px auto;
 }
 
@@ -109,7 +115,6 @@ ul {
   width: 250px;
   min-height: 300px;
   background: #DDEDF9;
-  border-top: 12px solid #0c4d7d;
   text-align: center;
 }
 
@@ -119,7 +124,6 @@ ul {
   min-height: 300px;
   background: #FFF;
   padding: 30px ;
-  border-top: 12px solid #0c4d7d;
 }
 
 #footer {
@@ -176,4 +180,10 @@ ul {
 
 .short_text {
   width: 150px;
+}
+
+.static_page_image {
+  padding-left: 100px;
+  padding-bottom: 50px;
+	
 }

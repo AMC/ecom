@@ -5,6 +5,7 @@
 
 <div id="container">
   <h3> Categories </h3>
+  <em> All Category images should be 60x50 pixels </em>
 
   <table style='width: 100%; vertical-align: text-bottom;'>
     <th>Category</th>

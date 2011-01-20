@@ -16,7 +16,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 	<title>
-    <?php if(isset($page_title)) {echo "$page_title"; } else { echo "SafariStuff.com"; } ?>
+    <?php if(isset($page_title)) {echo "$page_title"; } else { echo "SafariStuff.org"; } ?>
 	</title>
 	
 	
@@ -137,10 +137,12 @@
 
 </head>
 
-<body>
+<body onload="runSlideShow()">
 	<div id="header">
-	<a href="index.php"> 
-	  <img src="images/logo2.png" alt="Safari Stuff logo" /> 
-	</a>
+	  <div id='header_image'>
+    	<a href="index.php"> 
+	      <img src="images/logo2.png" alt="Safari Stuff logo" /> 
+    	</a>
+    </div>
 </div>
 

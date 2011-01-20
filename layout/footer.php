@@ -12,7 +12,7 @@
       | <a href="user.php?action=register_user">Register</a> 
     <?php } ?>
     <br />
-    Copyright &copy; 2010. All Rights Reserved.
+    Copyright &copy; 2010. SafariStuff llc. All Rights Reserved.
   </div>
 </div>
 

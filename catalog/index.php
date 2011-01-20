@@ -40,7 +40,9 @@
       <div class='product_text'>
         <?php echo "<a class='h3' href='catalog.php?action=view_product&expand=$expand&view=$view&product_id=" . $product['id'] . "'>" . $product['name'] . "</a>"; ?> <br />
         $<?php echo $product['price']; ?> <br /> <br />
-        <?php echo $product['description']; ?>
+        <?php echo substr($product['description'], 0, 245); ?>...
+        <?php echo "<a href='catalog.php?action=view_product&expand=$expand&view=$view&product_id=" . $product['id'] ."'> "; ?> read more
+        <?php echo "</a>"; ?>
         
       </div>
     </div>

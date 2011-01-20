@@ -51,6 +51,12 @@ foreach ($form_variables as $var) {
   $$var = request_var($db, $var);
 }
 
+# Pages Variables
+$form_variables = array('page_id', 'page_name', 'page_image', 'page_description');
+foreach ($form_variables as $var) {
+  $$var = request_var($db, $var);
+}
+
 
 
 
@@ -158,6 +164,20 @@ if (action() == 'none') {
 if (action() == 'calendar') {
   include("admin/calendar.php");
 }
+
+
+if (action() == 'update_page') {
+  include('admin/pages_update.php');
+}
+
+if (action() == 'edit_page') {
+  include('admin/pages_edit.php');
+}
+
+if (action() == 'pages') {
+  include("admin/pages.php");
+}
+
 
   
 ?>

@@ -27,5 +27,6 @@ $javascripts = array(	'menu.js');
  
 setlocale(LC_MONETARY, 'en_US');
 
+$curl = $_SERVER['PHP_SELF'];
 
 ?>

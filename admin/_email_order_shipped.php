@@ -1,10 +1,10 @@
 <?php
  
-$cart_items = $db->query("SELECT product_id, quantity, options, price FROM cart_products WHERE cart_id='$cart_id'");
+$cart_items = $db->query("SELECT products.name, products.reference, cart_products.product_id, cart_products.quantity, cart_products.price, cart_products.options FROM cart_products, products WHERE cart_products.product_id = products.id AND cart_products.cart_id = $cart_id");
 $cart = $db->query("SELECT * FROM cart WHERE id='$cart_id'");
 $cart = $cart->fetch_array(MYSQLI_ASSOC);
  
-  $my_email = 'Orders@SafariStuf.com';
+  $my_email = 'orders@SafariStuff.org';
   $my_name = 'Safari Stuff';
  
    require("lib/class.phpmailer.php");
@@ -18,16 +18,16 @@ $cart = $cart->fetch_array(MYSQLI_ASSOC);
    $mail->AddReplyTo($my_email, $my_name);
 
    $mail->AddAddress($email,  $cart['name']);
+   $mail->AddAddress($my_email,  $my_name);
 
-   $mail->Subject = "Order Shipped";
+   $mail->Subject = "Order Received";
 
    $body = "
 <html>
   <body>
-    <h3>Safari Stuff</h3>
-    <p>Thank you for your order, it has now shipped!</p>
-    <p>You can track your order online at: " . $cart['tracking_number'] . "
-    <p>Your order was shipped to:</p>
+    <h3>Safari Stuff Order #$cart_id</h3>
+    <p>Thank you for your order, it has now been shipped!</p>
+    <p>Your order has been shipped to:</p>
     <ul style='list-style-type: none'>
       <li> " . $cart['name'] . "</li>
       <li> " . $cart['address'] . "</li>
@@ -35,9 +35,9 @@ $cart = $cart->fetch_array(MYSQLI_ASSOC);
       <li> " . $cart['city'] . ", ". $cart['state'] . " " . $cart['zip_code'] . "
     </ul>
       
-    <table style='width: 500px; background: #DDD; color: #222; border: 1px solid #BBB; border-collapse: collapse; line-height: 1.5em'>
+    <table style='width: 800px; background: #DDD; color: #222; border: 1px solid #BBB; border-collapse: collapse; line-height: 1.5em'>
       <th style='text-align: center; width: 30px;'>Quantity</th>
-      <th style='text-align: center; width: 270px;'>Product</th>
+      <th style='text-align: center; width: 570px;'>Product</th>
       <th style='text-align: right; width: 100px;'>Price</th>
       <th></th>";
 
@@ -46,7 +46,19 @@ while ($cart_item = $cart_items->fetch_array(MYSQLI_ASSOC)) {
   $product = product($db, $cart_item['product_id']);
   $body .= "<tr style='background: " . $color . ";'>";
   $body .= "  <td style='text-align: center;'>" . $cart_item['quantity'] . "</td>";
-  $body .= "  <td style='text-align: center;'>" . $product['name'] . "</td>"; 
+  $body .= "  <td style='text-align: left;'>"; 
+  $body .=      $product['name'] . "<br />";
+  $body .=      $product['manufacturer'] . " #" . $product['reference'];
+  
+  $option_ids = explode(",", $cart_item['options']);
+
+  foreach ($option_ids as $option_id) {
+    $options = $db->query("SELECT option_name, options, price_impact FROM product_options WHERE id='$option_id'");
+    while ($option = $options->fetch_array(MYSQLI_ASSOC)) { 
+      $body .= "&nbsp; &nbsp; &nbsp;" . $option['option_name'] . ": " . $option['options'];
+    }
+  }
+
   $body .= "  <td style='text-align: right;'>" . money_format('%(#10n', $cart_item['price']) . "</td>";
   $body .= "  <td style='text-align: right;'>" . money_format('%(#10n', $cart_item['quantity'] * $cart_item['price']) . "</td>";
   $body .= "</tr>";
@@ -56,18 +68,17 @@ while ($cart_item = $cart_items->fetch_array(MYSQLI_ASSOC)) {
 
 $body .= "
       <tr>
-        <td colspan='3' style='text-align: right;'> Discount: </td>
+        <td colspan='3' style='text-align: right;'> ". $cart['promotion'] ." Discount: </td>
         <td style='text-align: right;'> " . money_format('%(#10n', $cart['discount']) . " </td>
       </tr>
       <tr>
-        <td colspan='3' style='text-align: right;'> Shipping: </td>
+        <td colspan='3' style='text-align: right;'> ". $cart['shipping_type'] ." Shipping: </td>
         <td style='text-align: right;'> " . money_format('%(#10n', $cart['shipping']) . " </td>
       </tr>
       <tr>
         <td colspan='3' style='text-align: right;'> Tax: </td>
         <td style='text-align: right;'> " . money_format('%(#10n', $cart['tax']) . " </td>
       </tr>
-
       <tr>
         <td colspan='3' style='text-align: right;'> Total: </td>
         <td style='text-align: right;'> " . money_format('%(#10n', $cart['total']) . " </td>
@@ -76,7 +87,6 @@ $body .= "
     </table>
   </body>
 </html>"; 
-
 
    $mail->MsgHTML($body);
 

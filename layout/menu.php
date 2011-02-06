@@ -2,10 +2,12 @@
 
 	<a href='index.php'>Home</a>
     <a href='about.php'>About Us</a>
-    <a href='catalog.php'>Products</a>
     <a href='policies.php'>Policies</a>
     <a href='partners.php'>Links</a>
+    <a href='testimonials.php'>Testimonials</a>
     <a href='contact.php'>Contact Us</a>
+    <a href='cart.php'>Cart</a>
+    
 
   <?php if (!empty($_SESSION['logged_in']) && $_SESSION['logged_in'] == 'TRUE') { ?> 
     <a href='user.php?action=user_information'>My Information</a>
@@ -19,7 +21,7 @@
 
 <?php if (role() == 'admin') {?>
   <div id='admin_menu' class='menu' >
-    <a href='admin.php'>Dashboard</a>
+    <a href='admin.php?order_status=pending'>Dashboard</a>
     <a href='catalog.php?action=new_product'>New Product</a>
     <a href='admin.php?action=categories'>Categories</a>
     <a href='admin.php?action=promotions'>Sales</a>

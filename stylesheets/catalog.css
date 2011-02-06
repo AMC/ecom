@@ -35,6 +35,11 @@ divs {
   padding: 0px 25px;
 }
 
+.additional_images {
+  float: left;
+  padding-right: 5px;
+}
+
 .category {
   height: 60px;
   margin: 2px auto;

@@ -25,7 +25,10 @@
   </div>
 
   <div style='text-align: center;'>
-    <h1><?php echo "$selection"; ?></h1> <br /><br />
+    <h1><?php echo "$selection"; ?></h1><br />
+    <?php if ($selection == 'Finger Puppets') { echo "<a href='finger_puppets.php'>Finger Puppet Care Instructions</a>"; }?>
+    <?php if ($selection == 'Stage Puppets') { echo "<a href='stage_puppets.php'>Finger Puppet Care Instructions</a>"; }?>
+     <br /><br />
   </div>
 
 

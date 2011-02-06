@@ -18,12 +18,12 @@
   	<h1>Links</h1>
   	<p>
     <?php $pages = $db->query("SELECT name, filetype, description FROM pages WHERE name='Links' "); ?>
-     <?php $page = $pages->fetch_array(MYSQL_ASSOC); ?>
+    <?php $page = $pages->fetch_array(MYSQL_ASSOC); ?>
     
            
-     <textarea readyonly style='width: 100%; height: 400px; border: none; overflow: none; font-family: Verdana,Geneva,sans-serif; font-size: 12px;'><?php echo $page['description']; ?></textarea>
-     </p>
-     <br /><br />
+    <?php echo nl2br($page['description']); ?>
+    </p>
+    <br /><br />
     
   </div>
   

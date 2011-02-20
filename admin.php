@@ -183,6 +183,9 @@ if (action() == 'promotions') {
   include("admin/promotions_index.php");
 }
 
+if (action() == "update_categories") {
+  include("admin/update_categories.php");
+}
 
 if (action() == 'category_contents') {
   include('admin/category_contents.php');

@@ -4,7 +4,7 @@ $cart_items = $db->query("SELECT products.name, products.reference, cart_product
 $cart = $db->query("SELECT * FROM cart WHERE id='$cart_id'");
 $cart = $cart->fetch_array(MYSQLI_ASSOC);
  
-  $my_email = 'orders@SafariStuff.org';
+  $my_email = 'SafariStuff@hotmail.com';
   $my_name = 'Safari Stuff';
  
    require("lib/class.phpmailer.php");

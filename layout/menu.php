@@ -21,7 +21,7 @@
 
 <?php if (role() == 'admin') {?>
   <div id='admin_menu' class='menu' >
-    <a href='admin.php?order_status=pending'>Dashboard</a>
+    <a href='admin.php?order_status=ordered'>Dashboard</a>
     <a href='catalog.php?action=new_product'>New Product</a>
     <a href='admin.php?action=categories'>Categories</a>
     <a href='admin.php?action=promotions'>Sales</a>

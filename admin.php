@@ -12,10 +12,17 @@ include_once("config/functions.php");
 
 
 #Set variables
-$form_variables = array('cart_id', 'product_id', 'order_status', 'old_status', 'name', 'email', 'phone', 'address', 'address2', 'city', 'state', 'zip_code', 'notes', 'shipping', 'discount', 'total');
+$form_variables = array('cart_id', 'product_id', 'order_status', 'old_status', 'name', 'email', 'phone', 'address', 'address2', 'city', 'state', 'zip_code', 'notes', 'tax', 'shipping', 'discount', 'total');
 foreach ($form_variables as $var) {
   $$var = request_var($db, $var);
 }
+
+#Parial Order Variables
+$form_variables = array('shipped');
+foreach ($form_variables as $var) {
+  $$var = request_var($db, $var);
+}
+
 
 # Search variables
 $form_variables = array('order_id', 'date_low', 'date_high', 'customer_name', 'order_status', 'amt_low', 'amt_high');
@@ -30,7 +37,7 @@ foreach ($form_variables as $var) {
 }
 
 # promotion variables
-$form_variables = array('promo_id', 'promo_name', 'promo_code', 'promo_message', 'promo_start', 'promo_end', 'promo_min', 'promo_percent', 'promo_amount', 'promo_storewide', 'promo_parent' );
+$form_variables = array('promo_id', 'promo_name', 'promo_code', 'promo_message', 'promo_start', 'promo_end', 'promo_min', 'promo_percent', 'promo_amount', 'promo_storewide', 'promo_type', 'promo_item', 'promo_item_id' );
 foreach ($form_variables as $var) {
   $$var = request_var($db, $var);
 }
@@ -57,6 +64,12 @@ foreach ($form_variables as $var) {
   $$var = request_var($db, $var);
 }
 
+# UPS Varialbes
+$form_variables = array('ups_invoice', 'ups_name', 'ups_phone', 'ups_address', 'ups_address2', 'ups_city', 'ups_state', 'ups_zip', 'ups_service', 'package_length', 'package_width', 'package_height', 'package_weight', 'package_value');
+foreach ($form_variables as $var) {
+  $$var = request_var($db, $var);
+}
+
 
 
 
@@ -64,6 +77,16 @@ if (role() != 'admin') {
   $_SESSION['flash'][] = 'You are not authorized to view that area.';
   header("Location: index.php");
 }
+
+
+if (action() == 'ups_create') {
+  include('admin/ups_create.php');
+}
+
+if (action() == 'ups_new') {
+  include('admin/ups_new.php');
+}
+
 
 if (action() == 'update_note') {
   include("admin/update_note.php");
@@ -81,8 +104,16 @@ if (action() == 'vendor') {
   include("admin/_admin_vendor.php");
 }
 
-if (action() == 'order_update') {
-  include("admin/_admin_order_update.php");
+if (action() == 'partial_order_update') {
+  include('admin/partial_order_update.php');
+}
+
+if (action() == 'order_update_shipping') {
+  include("admin/_admin_order_update_shipping.php");
+}
+
+if (action() == 'order_update_costs') {
+  include("admin/_admin_order_update_costs.php");
 }
 
 if (action() == 'order_details') {
@@ -125,8 +156,14 @@ if (action() == 'new_promotion') {
   include("admin/promotion_new.php");
 }
 
-if (action() == 'add_promo_parent') {
-  include("admin/promo_parent_add.php"); 
+
+if (action() == 'add_promo_item') {
+  include("admin/promo_item_add.php"); 
+}
+
+if (action() == 'delete_promo_item') {
+
+  include('admin/promo_item_delete.php');
 }
 
 if (action() == 'update_promotion') {
@@ -141,9 +178,11 @@ if (action() == 'delete_promotion') {
   include('admin/promotion_delete.php');
 }
 
+
 if (action() == 'promotions') {
   include("admin/promotions_index.php");
 }
+
 
 if (action() == 'category_contents') {
   include('admin/category_contents.php');

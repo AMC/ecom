@@ -96,6 +96,9 @@
   
     <span class='h3'>Discontinued</span>
     <input type='checkbox' name='discontinued' value='1' size='40' <?php if ($product['discontinued'] == 1) {echo "checked='checked'"; } ?> /><br /><br />
+    
+    <span class='h3'>Sold Out</span>
+    <input type='checkbox' name='sold_out' value='1' size='40' <?php if ($product['sold_out'] == 1) {echo "checked='checked'"; } ?> /><br /><br />
 
 
   </div>

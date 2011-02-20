@@ -15,6 +15,11 @@ divs {
   max-height: 125px;
 }
 
+.sold_out {
+  float: left;
+  margin-left: -125px;
+}
+
 .product_text {
   padding-top: 10px;
   float: right;

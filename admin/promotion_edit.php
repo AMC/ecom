@@ -63,49 +63,8 @@
 
 
 
-<div style='float: left; width: 23%; border-left: 1px solid #DDD;'>
-  <table style='width: 100%;'>
-    <th> Parent Categories </th>
-    <tr>
-      <td>
-        <?php $parent_categories = array('', 'Accessories', 'Decor', 'Hats', 'Kids'); ?>
-        <form action='admin.php' method='post'>
-          <select name='promo_parent' style='width: 70%'>
-            <?php foreach ($parent_categories as $parent_category) { ?>
-              <option><?php echo $parent_category; ?></option>
-            <?php } ?>
-          </select>
 
-          <input type='hidden' name='promo_id' value='<?php echo $promo_id;?>' />
-          <input type='hidden' name='action' value='add_promo_parent' />
-          <input type='submit' value='add' />
-        </form>
-      </td>
-    </tr>
-  <?php $promo_parents = $db->query("SELECT * FROM promo_parent WHERE promotion_id='$promo_id'"); ?>
-  <?php while ( $promo_parent = $promo_parents->fetch_array(MYSQLI_ASSOC) ) { ?>
-    <tr>
-      <td style='text-align: right;'>
-        <?php echo $promo_parent['parent_category']; ?>
-          <form action='admin.php' method='post' style='display: inline;'>
-            <input type='hidden' name='promo_id' value='<?php echo $promo_id;?>' />
-            <input type='hidden' name='action' value='delete_promo_parent' />
-            &nbsp; &nbsp; &nbsp;
-            <input type='submit' value='delete' />
-          </form>
-        </td>
-      </td>
-      
-    </tr>
-  <?php } ?>
-      
-    
-    
-  </table>
-  
-</div>
-  
-<div style='float: left; width: 23%; border-left: 1px solid #DDD; padding-left: 10px;'>
+<div style='float: left; width: 32%; border-left: 1px solid #DDD; padding-left: 10px;'>
   <table style='width: 100%;'>
     <th> Categories </th>
     <tr>
@@ -113,21 +72,46 @@
       <td>
         <?php $categories = $db->query("SELECT DISTINCT(category) FROM products WHERE discontinued IS FALSE ORDER BY category"); ?>
         <form action='admin.php' method='post'>
-          <select name='promo_category' style='width: 70%;'>
+          <select name='promo_item' style='width: 70%;'>
           <option></option>
 
            <?php while ($category = $categories->fetch_array(MYSQLI_ASSOC) ) { ?>
               <option><?php echo $category['category']; ?></option>
             <?php } ?>
           </select>
+  
+          <input type='hidden' name='promo_type' value='Category' />
+          <input type='hidden' name='promo_id' value='<?php echo $promo_id;?>' />
+          <input type='hidden' name='action' value='add_promo_item' />
           <input type='submit' value='add' />
         </form>
     </tr>
+    
+    <?php $promo_items = $db->query("SELECT id, type, item FROM promo_items WHERE promo_id = $promo_id AND type='Category' ORDER BY item"); ?>
+    <?php while ( $promo_item = $promo_items->fetch_array(MYSQLI_ASSOC) ) { ?>
+      <tr>
+        <td style='text-align: right;'>
+          <?php echo $promo_item['item']; ?>
+            <form action='admin.php' method='post' style='display: inline;'>
+              <input type='hidden' name='promo_id' value='<?php echo $promo_id; ?>'>
+              <input type='hidden' name='promo_type' value='<?php echo $promo_item['type']; ?>' />
+              <input type='hidden' name='promo_item' value='<?php echo $promo_item['item'];?>' />
+              <input type='hidden' name='promo_item_id' value='<?php echo $promo_item['id'];?>' />
+              <input type='hidden' name='action' value='delete_promo_item' />
+              &nbsp; &nbsp; &nbsp;
+              <input type='submit' value='delete' />
+            </form>
+          </td>
+        </td>
+
+      </tr>
+    <?php } ?>
+    
   </table>
   
 </div>
 
-<div style='float: left; width: 23%; border-left: 1px solid #DDD; padding-left: 10px;'>
+<div style='float: left; width: 32%; border-left: 1px solid #DDD; padding-left: 10px;'>
   <table style='width: 100%;'>
     <th> Manufacturers </th>
     <tr>
@@ -135,34 +119,92 @@
       <td>
         <?php $manufacturers = $db->query("SELECT DISTINCT(manufacturer) FROM products WHERE discontinued IS FALSE ORDER BY manufacturer"); ?>
         <form action='admin.php' method='post'>
-          <select name='promo_manufacturer' style='width: 70%;'>
+          <select name='promo_item' style='width: 70%;'>
           <option></option>
 
            <?php while ($manufacturer = $manufacturers->fetch_array(MYSQLI_ASSOC) ) { ?>
               <option><?php echo $manufacturer['manufacturer']; ?></option>
             <?php } ?>
           </select>
+          
+          <input type='hidden' name='promo_type' value='Manufacturer' />
+          <input type='hidden' name='promo_id' value='<?php echo $promo_id;?>' />
+          <input type='hidden' name='action' value='add_promo_item' />
           <input type='submit' value='add' />
         </form>
     </tr>
+    <?php $promo_items = $db->query("SELECT id, type, item FROM promo_items WHERE promo_id = $promo_id AND type='Manufacturer' ORDER BY item"); ?>
+    <?php while ( $promo_item = $promo_items->fetch_array(MYSQLI_ASSOC) ) { ?>
+      <tr>
+        <td style='text-align: right;'>
+          <?php echo $promo_item['item']; ?>
+            <form action='admin.php' method='post' style='display: inline;'>
+              <input type='hidden' name='promo_id' value='<?php echo $promo_id; ?>'>
+              <input type='hidden' name='promo_type' value='<?php echo $promo_item['type']; ?>' />
+              <input type='hidden' name='promo_item' value='<?php echo $promo_item['item'];?>' />
+              <input type='hidden' name='promo_item_id' value='<?php echo $promo_item['id'];?>' />
+              <input type='hidden' name='action' value='delete_promo_item' />
+              &nbsp; &nbsp; &nbsp;
+              <input type='submit' value='delete' />
+            </form>
+          </td>
+        </td>
+
+      </tr>
+    <?php } ?>    
+    
+    
   </table>
   
 </div>
 
-<div style='float: left; width: 23%; border-left: 1px solid #DDD; padding-left: 10px;'>
+<div style='float: left; width: 32%; border-left: 1px solid #DDD; padding-left: 10px;'>
   <table style='width: 100%;'>
-    <th> Products </th>
+    <tr>
+      <th> Products </th>
+    </tr>
+    <tr>
+     <th style='font-size: 12px'>by manufacturer reference</th>
+    </tr>
     <tr>
       
       <td>
+
         <form action='admin.php' method='post'>
-          <input type='text' name='promo_product' />
+          <input type='text' name='promo_item' style='width: 70%;'>
+          
+          <input type='hidden' name='promo_type' value='Product' />
+          <input type='hidden' name='promo_id' value='<?php echo $promo_id;?>' />
+          <input type='hidden' name='action' value='add_promo_item' />
           <input type='submit' value='add' />
         </form>
     </tr>
+    <?php $promo_items = $db->query("SELECT id, type, item FROM promo_items WHERE promo_id = $promo_id AND type='Product' ORDER BY item"); ?>
+    <?php while ( $promo_item = $promo_items->fetch_array(MYSQLI_ASSOC) ) { ?>
+      <tr>
+        <td style='text-align: right;'>
+          <?php echo $promo_item['item']; ?>
+            <form action='admin.php' method='post' style='display: inline;'>
+              <input type='hidden' name='promo_id' value='<?php echo $promo_id; ?>'>
+              <input type='hidden' name='promo_type' value='<?php echo $promo_item['type']; ?>' />
+              <input type='hidden' name='promo_item' value='<?php echo $promo_item['item'];?>' />
+              <input type='hidden' name='promo_item_id' value='<?php echo $promo_item['id'];?>' />
+              <input type='hidden' name='action' value='delete_promo_item' />
+              &nbsp; &nbsp; &nbsp;
+              <input type='submit' value='delete' />
+            </form>
+          </td>
+        </td>
+
+      </tr>
+    <?php } ?>    
+    
+    
   </table>
   
 </div>
+
+
 
   
 

@@ -9,8 +9,8 @@
   <?php include('catalog/menu.php'); ?>
   
   <div id='right_column'>
-    <?php $product = $db->query("SELECT * FROM products WHERE id='$product_id' "); ?>
-    <?php $product = $product->fetch_array(MYSQLI_ASSOC); ?>
+    <?php $products = $db->query("SELECT * FROM products WHERE id='$product_id' "); ?>
+    <?php $product = $products->fetch_array(MYSQLI_ASSOC); ?>
 
     <?php if (role() == 'admin') { ?>
       <?php if (action() == 'new_product') { ?>

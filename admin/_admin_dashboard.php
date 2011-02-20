@@ -83,37 +83,44 @@
 
   <table style='width: 30%; float: left; margin-left: 5%; margin-right: 5%; text-align: center'>
     <th>Current Promotions: </th>
+    <?php $promotions = $db->query("SELECT id, name FROM promotions WHERE start < CURDATE() AND end > CURDATE()")?>
+    <?php while ($promotion = $promotions->fetch_array(MYSQLI_ASSOC)) { ?>
     <tr>
-      <td>xxx</td>
-    </tr>
-    <tr>
-      <td>xxx</td>
-    </tr>
+      <?php $promo_id = $promotion['id']; ?>
+      <td>
+        <?php echo "<a href='admin.php?action=edit_promotion&promo_id=" . $promotion['id'] . "'>"; ?>
+        <?php echo $promotion['name']; ?>
+        <?php echo "</a>"; ?>
+      </td>
+      
+    <?php } ?>
   </table>
   
   <table style='width: 30%; float: left;'>
     <tr>
-      <td><a href='admin.php?order_status=Pending'>Pending Orders</a>:</td>
+      <td><a href='admin.php?order_status=Ordered'>Ordered</a>:</td>
       <td style='text-align: right; '> 
-        <?php $count_array = $db->query("SELECT COUNT(*) FROM cart WHERE status='Pending'")->fetch_row(); ?>
+        <?php $count_array = $db->query("SELECT COUNT(*) FROM cart WHERE status='Ordered'")->fetch_row(); ?>
         <?php $count = $count_array[0]; ?>
         <?php echo $count; ?>
       </td>
     </tr>
+
+    <tr>
+      <td><a href='admin.php?order_status=Partial'>Partial</a>:</td>
+      <td style='text-align: right; '> 
+        <?php $count_array = $db->query("SELECT COUNT(*) FROM cart WHERE status='Partial'")->fetch_row(); ?>
+        <?php $count = $count_array[0]; ?>
+        <?php echo $count; ?>
+      </td>
+
+    </tr>
+
 
     <tr>
       <td><a href='admin.php?order_status=Shipped'>Shipped</a>:</td>
       <td style='text-align: right; '> 
         <?php $count_array = $db->query("SELECT COUNT(*) FROM cart WHERE status='Shipped'")->fetch_row(); ?>
-        <?php $count = $count_array[0]; ?>
-        <?php echo $count; ?>
-      </td>
-
-    </tr>
-    <tr>
-      <td><a href='admin.php?order_status=Delivered'>Delivered</a>:</td>
-      <td style='text-align: right; '> 
-        <?php $count_array = $db->query("SELECT COUNT(*) FROM cart WHERE status='Delivered'")->fetch_row(); ?>
         <?php $count = $count_array[0]; ?>
         <?php echo $count; ?>
       </td>

@@ -17,8 +17,8 @@ if ( empty($name) || empty($price) || empty($category) || empty($reference) ) {
     $_SESSION['flash'][] = 'Reference already in use';
     $_REQUEST['action'] = 'new_product';
   } else {
-    $db->query("INSERT INTO products (name, manufacturer, reference, upc, category, price, cost, discontinued, description) 
-      VALUES ('$name', '$manufacturer', '$reference', '$upc', '$category', '$price', '$cost', '$discontinued', '$description')");
+    $db->query("INSERT INTO products (name, manufacturer, reference, upc, category, price, cost, discontinued, sold_out, description) 
+      VALUES ('$name', '$manufacturer', '$reference', '$upc', '$category', '$price', '$cost', '$discontinued', '$sold_out', '$description')");
     $product_id = $db->insert_id;
     $_SESSION['flash'][] = "Product created, id#$product_id";
 

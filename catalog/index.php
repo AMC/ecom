@@ -10,7 +10,7 @@
 
 <div id='right_column'>
   <?php $product_count = "SELECT COUNT(*) FROM products WHERE category='$selection'"; ?>
-  <?php $query = "SELECT id, name, price, description, reference FROM products WHERE category='$selection' AND discontinued IS FALSE ORDER BY name LIMIT $offset, $offset_increment "; ?>
+  <?php $query = "SELECT id, name, price, description, reference, sold_out FROM products WHERE category='$selection' AND discontinued IS FALSE ORDER BY name LIMIT $offset, $offset_increment "; ?>
 
   <?php $count_array = $db->query($product_count)->fetch_row(); ?>
   <?php $count = $count_array[0]; ?>
@@ -40,6 +40,14 @@
         <?php echo resize_img($image, 125); ?>
         <?php echo "</a> "; ?>
       </div>
+      <?php if ($product['sold_out'] == 1) { ?>
+      <div class='sold_out'>
+        <?php echo "<a href='catalog.php?action=view_product&expand=$expand&view=$view&product_id=" . $product['id'] ."'> "; ?>
+        <img src='images/soldout-125x125.png' />
+        <?php echo "</a>"; ?>
+      </div>
+      <?php } ?>
+      
       <div class='product_text'>
         <?php echo "<a class='h3' href='catalog.php?action=view_product&expand=$expand&view=$view&product_id=" . $product['id'] . "'>" . $product['name'] . "</a>"; ?> <br />
         $<?php echo $product['price']; ?> <br /> <br />

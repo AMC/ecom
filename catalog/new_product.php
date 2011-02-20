@@ -34,6 +34,10 @@
   <input type='checkbox' name='discontinued' id='discontinued' value='1'  <?php if ($discontinued == 1) {echo "checked='checked'"; } ?> />
   <label for='discontinued' class='h3'>Discontinued</label><br /><br />
   
+  <input type='checkbox' name='sold_out' id='sold_out' value='1'  <?php if ($sold_out == 1) {echo "checked='checked'"; } ?> />
+  <label for='sold_out' class='h3'>Sold Out</label><br /><br />
+  
+  
 </div>
 
 <div style='clear: both;'>

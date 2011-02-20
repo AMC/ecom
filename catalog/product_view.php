@@ -3,6 +3,9 @@
 
     <?php $image = "product_images/" . $product['reference'] . ".jpg"; ?>
     <?php echo resize_popup_img($image, 250); ?><br />
+    <?php if ($product['sold_out'] == 1) { ?>
+      <img src='images/soldout-250x250.png' /><br />
+    <?php } ?>
     (Click to Enlarge)<br /><br />
 
 
@@ -28,6 +31,7 @@
   <span class='h3'> <?php echo money_format('%(#10n', $product['price']); ?> </span>
   <br /><br />
   
+  <?php if ($product['sold_out'] == 0) { ?>
   <form action='cart.php' method='post'>
     <input type='submit' class='button' value='Add to Cart' />
     <input type='hidden' name='action' value='add_product' />
@@ -36,7 +40,7 @@
     <input type='hidden' name='price' value='<?php echo $product['price']; ?>' />
     <input type='hidden' name='collection' value='<?php echo $product['collection']; ?> ' />
     <input type='hidden' name='free_shipping' value='<?php echo $product['free_shipping']; ?>'>
-
+  <?php } ?>
   
   
   <br /><br />

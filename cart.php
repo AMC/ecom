@@ -14,7 +14,6 @@ foreach ($form_variables as $var) {
 $product = product($db, $product_id);
 $cart_id = cart_id($db);
 
-
 if (isset($_REQUEST['options']) && is_array($_REQUEST['options'])) {    
 
   $options = implode(",", $_REQUEST['options']);

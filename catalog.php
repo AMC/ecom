@@ -11,7 +11,7 @@ $curl = $_SERVER['PHP_SELF'];
 $stylesheets[] = 'catalog.css';
 
 #Set variables
-$form_variables = array('type', 'view', 'offset', 'product_id', 'name', 'quantity', 'weight', 'manufacturer', 'reference', 'upc', 'category', 'price', 'cost', 'discontinued', 'description');
+$form_variables = array('type', 'view', 'offset', 'product_id', 'name', 'quantity', 'weight', 'manufacturer', 'reference', 'upc', 'category', 'price', 'cost', 'discontinued', 'sold_out', 'description');
 foreach ($form_variables as $var) {
   $$var = request_var($db, $var);
 }

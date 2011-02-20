@@ -53,9 +53,11 @@
     <td style='width: 100px;'> <?php echo $order['status']; ?> </td>
     <td style='width: 120px; text-align: right; padding-right: 20px;'> <?php echo $order['total']; ?> </td>
     <td>
+      <?php $ups_label = "ups_labels/" . $order['id'] . ".gif"; ?>
+      <?php if ( file_exists($ups_label)) { echo "<a href='$ups_label' target='_blank'>[shipping]</a>"; }?>
       <a href="admin.php?action=invoice&cart_id=<?php echo $order['id']; ?>" target='_blank'>[invoice]</a>
-      <a href="admin.php?action=shipping&cart_id=<?php echo $order['id']; ?>" target='_blank'>[shipping]</a>
-      <a href="admin.php?action=vendor&cart_id=<?php echo $order['id']; ?>" target='_blank'>[vendor]</a>
+   
+   
     </td>
 <?php } ?>
 

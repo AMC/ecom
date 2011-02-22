@@ -104,29 +104,12 @@
 
     <tr>
       <td></td>
-      <td style='text-align: right;'>
-        <select name='shipping'>
-          <option>Ground</option>
-          <option>3rd Day</option>
-          <option>2nd Day</option>
-          <option>Next Day</option>
-        </select>
-        
-      </td>
-      <td style='text-align: right;'>Shipping: </td>
-      <td style='text-align: right;'> 
-        <?php $shipping = 9.99; ?>
-        <?php echo money_format('%(#10n', $shipping); ?>
-      </td>
-    </tr>
-
-    <tr>
       <td></td>
-      <td></td>
-      <td style='text-align: right;'>Total: </td>
+      <td style='text-align: right;'>Subtotal: </td>
       <td style='text-align: right;'> 
       
         <?php $order_total = $subtotal_products + $discount; ?>
+
       
         <?php if ($order_total > 0) { echo money_format('%(#10n', $order_total);} ?>
           <?php $db->query("UPDATE cart SET subtotal = $subtotal_products, total='$order_total', discount='$discount' WHERE id='$cart_id'"); ?>
@@ -134,14 +117,45 @@
       </td>
     </tr>
 
+
+
+
+    <tr>
+      <td></td>
+      <td style='text-align: right;'>
+<form action='expresscheckout.php' METHOD='post'>
+
+        
+      </td>
+      <td style='text-align: right;'>Shipping: </td>
+      <td style='text-align: left; padding-left: 20px;' colspan='2'> 
+        
+        <select name='shipping'>
+          <option value='9.99'>Ground - $9.99</option>
+          <option value='14.99'>3rd Day - $14.99</option>
+          <option value='19.99'>2nd Day - $19.99</option>
+          <option value='29.99'>Next Day - $29.99</option>
+        </select>
+      </td>
+    </tr>
+
     <tr>
       <td></td>
       <td></td>
       <td></td>
 
 
-      <td colspan='3' style='text-align: right; padding-top: 20px'> 
-        <img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" align="left" style="margin-right:7px;">
+      <td colspan='3' style='text-align: right; padding-top: 20px'>
+
+          <?php $_SESSION['Payment_Amount'] = $order_total; ?>
+          <input type='hidden' name='order_total' value='<?php echo $order_total; ?>' />
+          <input type='hidden' name='cart_id' value='<?php echo $cart_id; ?>' />
+            
+
+          <input type='image' name='submit' src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif' border='0' align='top' alt='Check out with PayPal'/>
+</form>
+          
+
       </td>
     </tr>  
   

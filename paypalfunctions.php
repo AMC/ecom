@@ -15,9 +15,9 @@
 	//' Replace <API_PASSWORD> with your API Password
 	//' Replace <API_SIGNATURE> with your Signature
 	//'------------------------------------
-	$API_UserName="dev_1271373501_biz_api1.willgretz.com";
-	$API_Password="1271373509";
-	$API_Signature="AFcWxV21C7fd0v3bYYYRCpSSRl31A3nsaMkAF8i7GAuaNpAo0QdCfMuE";
+	$API_UserName="seller_1293130386_biz_api1.thepog.net";
+	$API_Password="1293130396";
+	$API_Signature="AqQAIm.w3odbazf.CG9.e3aPWXXSA6bIV7gKLuc3bDi50SyW0oUP6o5x ";
 
 	// BN Code 	is only applicable for partners
 	$sBNCode = "PP-ECWizard";
